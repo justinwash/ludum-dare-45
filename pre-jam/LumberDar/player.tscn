@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.35202, 15.1204 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "player_idle"
 length = 0.1
 tracks/0/type = "value"
@@ -22,8 +22,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "player_walk"
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -56,7 +55,8 @@ shape = SubResource( 1 )
 position = Vector2( 18.3796, 15.291 )
 texture = ExtResource( 1 )
 vframes = 2
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/player_idle = SubResource( 3 )
-anims/player_walk = SubResource( 2 )
+anims/player_idle = SubResource( 2 )
+anims/player_walk = SubResource( 3 )

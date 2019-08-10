@@ -5,6 +5,7 @@
 [ext_resource path="res://tree.gd" type="Script" id=3]
 
 [node name="tree" type="RigidBody2D"]
+scale = Vector2( 2, 2 )
 mass = 3.54
 gravity_scale = 0.0
 linear_damp = 6.12
