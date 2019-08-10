@@ -48,46 +48,4 @@ editor_draw_limits = true
 [node name="forest" type="Node2D" parent="."]
 
 [node name="tree" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 561, 293 )
-
-[node name="tree2" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 596, 140 )
-
-[node name="tree3" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 500, 44 )
-
-[node name="tree4" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 458.745, 254.527 )
-
-[node name="tree5" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 436, 123 )
-
-[node name="tree6" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 344.857, 318.486 )
-
-[node name="tree7" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 216.265, 375.806 )
-
-[node name="tree8" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 56.0646, 294.527 )
-
-[node name="tree9" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 347, 57 )
-
-[node name="tree10" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 312, 179 )
-
-[node name="tree11" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 193, 37 )
-
-[node name="tree12" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 219, 215 )
-
-[node name="tree13" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 39, 150 )
-
-[node name="tree14" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 133, 161 )
-
-[node name="tree15" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 267, 73 )
+position = Vector2( 120.12, 46.9001 )
