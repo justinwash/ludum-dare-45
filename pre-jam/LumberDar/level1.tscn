@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tree.tscn" type="PackedScene" id=2]
+
+[node name="level1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 251.65, 99.2682 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="tree" parent="." instance=ExtResource( 2 )]
+position = Vector2( 346.124, 102.767 )
+
+[node name="tree2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 316.965, 255.559 )
+
+[node name="tree3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 523.409, 99.2682 )
+
+[node name="tree4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 486.086, 169.249 )
+
+[node name="tree5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 301.803, 22.2891 )
+
+[node name="tree6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 448.763, 84.1057 )
+
+[node name="tree7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 372.95, 201.907 )
+
+[node name="tree8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 420.771, 152.92 )
+
+[node name="tree9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 391.612, 37.4517 )
+
+[node name="tree10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.018, 138.924 )
+
+[node name="tree11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 95.3588, 58.446 )
+
+[node name="tree12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232.988, 17.6237 )
+
+[node name="tree13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 276.143, 178.58 )
+
+[node name="tree14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213.16, 151.754 )
+
+[node name="tree15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 187.5, 86.4384 )
+[connection signal="body_entered" from="Area2D" to="player" method="_on_Area2D_body_entered"]
