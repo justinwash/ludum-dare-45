@@ -5,20 +5,21 @@ extends KinematicBody2D
 # var b = "text"
 
 export(float, EXP, 10, 200, 1) var move_speed := 100
-export (NodePath) var animation_player
+export (NodePath) var animation_player_path
 onready var animation_player_node
+export (NodePath) var sprite_path
+onready var sprite_node
+
 const ANIMATIONS := {
-		"walk": "player_walk",
-		"idle": "player_idle"
+		"walk": "The Real Walk",
+		"idle": "Darwin Idle"
 	}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animation_player_node = get_node(animation_player)
+	animation_player_node = get_node(animation_player_path)
+	sprite_node = get_node(sprite_path)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func _physics_process(delta):
 	var direction = { "x": 0, "y": 0 }
 
@@ -36,8 +37,9 @@ func _physics_process(delta):
 	elif animation_player_node.current_animation == ANIMATIONS.walk:
 		play_idle_animation(animation_player_node)
 
-	var move_vector = Vector2(direction.x, direction.y)
+	sprite_node.flip_h = true if direction.x < 0 else false
 
+	var move_vector = Vector2(direction.x, direction.y)
 	move_and_slide(move_vector.normalized() * move_speed)
 
 func play_idle_animation(animation_node) -> void:

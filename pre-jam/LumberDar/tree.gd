@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 onready var initial_y
 export var MAX_Y_DISTANCE = 24

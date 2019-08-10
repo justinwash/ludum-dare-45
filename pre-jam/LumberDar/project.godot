@@ -19,6 +19,14 @@ config/name="practice"
 run/main_scene="res://level1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=720
+window/size/height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
