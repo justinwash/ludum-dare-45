@@ -1,6 +1,9 @@
 # Ludum-Dare-45
 A Ludum Dare 45 entry.
 
+### Glo Board
+* [Ludum-Dare-45 Task Board](https://app.gitkraken.com/glo/board/XTIXD04dMgAPiFzD)
+
 ### Possible Themes & Ideas
 
 **Start with nothing:** 
