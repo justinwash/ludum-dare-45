@@ -32,5 +32,4 @@ func addItemToItems(item):
 	var Items = get_node("Items")
 	Items.add_child_below_node(Items, item)
 	Items.show()
-	add_child(item)
 	print(Items.get_child_count())
