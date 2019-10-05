@@ -30,6 +30,7 @@ func getRandomItem():
 
 func addItemToItems(item): 
 	var Items = get_node("Items")
-	Items.add_child_below_node(Items, item)
-	Items.show()
+	Items.add_child(item)
+	(item as Node2D).add_to_group("Item")
+#	Items.add_child_below_node(Items, item)
 	print(Items.get_child_count())
