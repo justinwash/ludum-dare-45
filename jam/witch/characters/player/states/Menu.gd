@@ -10,8 +10,8 @@ var itemlist
 func enter():
 	.enter()
 	inventory = get_node("../../Inventory")
-	menu = get_node("../../../Menu")
-	itemlist = get_node("../../../Menu/ItemList")
+	menu = get_node("../../CanvasLayer/Menu")
+	itemlist = get_node("../../CanvasLayer/Menu/ItemList")
 	
 	print("Menu")
 	recursive_show(menu, true)
