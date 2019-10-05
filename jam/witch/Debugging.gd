@@ -17,4 +17,4 @@ func _on_Button2_button_up():
 	Inventory_Ref.add_item(0)
 
 func _on_RemoveBroom_button_up():
-	Inventory_Ref.remove_item(0) # Replace with function body.
+	Inventory_Ref.remove_item(0)

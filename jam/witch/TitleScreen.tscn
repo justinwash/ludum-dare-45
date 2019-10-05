@@ -1,52 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Debugging.gd" type="Script" id=1]
 [ext_resource path="res://Button.gd" type="Script" id=2]
-[ext_resource path="res://Inventory.gd" type="Script" id=3]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 410.331
-margin_top = 254.896
-margin_right = 699.331
-margin_bottom = 294.896
+margin_left = 128.598
+margin_top = 13.2256
+margin_right = 417.598
+margin_bottom = 53.2256
 text = "CLICKY THA BUTTON PLAY THA GAME"
 
-[node name="Button" type="Button" parent="."]
-margin_left = 469.927
-margin_top = 304.507
-margin_right = 589.927
-margin_bottom = 345.507
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 188.193
+margin_top = 62.8365
+margin_right = 308.193
+margin_bottom = 103.837
 text = "CLICK ME PLEASE"
 script = ExtResource( 2 )
-
-[node name="GetBroom" type="Button" parent="."]
-margin_left = 334.0
-margin_top = 398.0
-margin_right = 506.0
-margin_bottom = 450.0
-text = "Gimme a broom"
-
-[node name="RemoveBroom" type="Button" parent="."]
-margin_left = 578.0
-margin_top = 398.0
-margin_right = 750.0
-margin_bottom = 450.0
-text = "Take my broom away"
-
-[node name="BroomCount" type="RichTextLabel" parent="."]
-margin_left = 456.0
-margin_top = 490.0
-margin_right = 636.0
-margin_bottom = 530.0
-text = "Broom Count: 0"
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource( 3 )
-[connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
-[connection signal="button_up" from="GetBroom" to="." method="_on_Button2_button_up"]
-[connection signal="button_up" from="RemoveBroom" to="." method="_on_RemoveBroom_button_up"]
+[connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_Button_button_up"]

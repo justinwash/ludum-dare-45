@@ -9,5 +9,5 @@ func enter():
 func update(delta):
 	if Updates.check_walk():
 		emit_signal("change_state", "walk")
-	if Updates.check_grab(): 
+	if Updates.check_grab():
 		emit_signal("change_state", "grabbing")

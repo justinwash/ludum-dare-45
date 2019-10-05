@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://1st_Mushroom-1.png" type="Texture" id=1]
+[ext_resource path="res://items/Mushroom.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.72777, 0.985176 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Node" type="Node" parent="."]
 

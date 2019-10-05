@@ -1,17 +1,17 @@
 extends Node
 
-var Item = preload("res://Item.gd").new()
+var Items = load("res://Items.gd").new()
 
 func _ready():
-	add_child(Item.get_item_from_id(0))
+	for type in Items.types:
+		add_child(Items.types[type])
 
-func add_item(id):
+func add_item_by_name(item_name):
 	for item in get_children():
-		if item.id == id:
+		if item.item_name == item_name:
 			item.quantity += 1
 
-func remove_item(id):
+func remove_item_by_name(item_name):
 	for item in get_children():
-		if item.id == id:
-			if item.quantity > 0:
-				item.quantity -= 1
+		if item.item_name == item_name && item.quantity > 0:
+			item.quantity -= 1

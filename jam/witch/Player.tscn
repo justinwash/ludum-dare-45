@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://StateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Idle.gd" type="Script" id=3]
 [ext_resource path="res://Walk.gd" type="Script" id=4]
 [ext_resource path="res://Grabbing.gd" type="Script" id=5]
+[ext_resource path="res://Inventory.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1044, 11.2855 )
@@ -34,3 +35,6 @@ script = ExtResource( 4 )
 
 [node name="Grabbing" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 6 )
