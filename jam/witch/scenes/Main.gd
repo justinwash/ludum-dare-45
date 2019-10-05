@@ -1,11 +1,13 @@
 extends Node2D
-const Leaf = preload("../items/Leaf/Leaf.gd")
-const Mushroom = preload("../items/Mushroom/Mushroom.gd")
+const Leaf = preload("../items/Leaf/Leaf.tscn")
+const Mushroom = preload("../items/Mushroom/Mushroom.tscn")
 const MAX_ITEMS_PLACED = 50
+const X_MAX = 400
+const Y_MAX = 400
 
 func _ready():
 	for i in range(MAX_ITEMS_PLACED):
-		var posVector = getRandomVector2(400, 400)
+		var posVector = getRandomVector2(X_MAX, Y_MAX)
 		print(posVector)
 		var newItem = getRandomItem()
 		(newItem as Node2D).position = posVector
@@ -24,9 +26,11 @@ func getRandomItem():
 		print("Making a leaf")
 	else:
 		print("Making a shroom")
-	return item.new()
+	return item.instance()
 
 func addItemToItems(item): 
 	var Items = get_node("Items")
 	Items.add_child_below_node(Items, item)
+	Items.show()
+	add_child(item)
 	print(Items.get_child_count())
