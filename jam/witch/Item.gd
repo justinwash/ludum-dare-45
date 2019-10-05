@@ -1,5 +1,5 @@
 extends Node
-onready var Mushroom = load("res://items/Mushroom.gd")
+var Mushroom = load("res://items/Mushroom.gd")
 
 var id
 var item_name
@@ -8,4 +8,5 @@ var description
 
 func get_item_from_id(id):
 	if id == 0:
-		return Mushroom
+		var mush = get_parent().add_child(Mushroom.new())
+		return mush
