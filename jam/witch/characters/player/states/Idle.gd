@@ -11,3 +11,5 @@ func update():
 		emit_signal("change_state", "walk")
 	if Updates.check_grab():
 		emit_signal("change_state", "grabbing")
+	if Updates.check_menu():
+		emit_signal("change_state", "menu")
