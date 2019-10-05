@@ -24,6 +24,8 @@ func update():
 		emit_signal("change_state", "grabbing")
 	if Updates.check_walk():
 		emit_signal("change_state", "walk")
+	else:
+		emit_signal("change_state", "idle")
 
 func getNearestItem():
 	var items = get_tree().get_nodes_in_group("Item")

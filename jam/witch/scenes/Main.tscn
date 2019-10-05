@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=1]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=4]
+[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "swamp-tileset.png 0"
@@ -223,3 +224,7 @@ position = Vector2( 71.4712, -36.8372 )
 "Item",
 ] instance=ExtResource( 4 )]
 position = Vector2( 150.479, -4.25672 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="Canvas" instance=ExtResource( 5 )]

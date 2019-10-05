@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/states/StateMachine.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://characters/player/states/Menu.gd" type="Script" id=6]
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://characters/player/witch_placeholder.png" type="Texture" id=8]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1044, 11.2855 )
@@ -44,8 +43,3 @@ script = ExtResource( 7 )
 [node name="witch_placeholder" type="Sprite" parent="."]
 position = Vector2( -0.882568, -1.11301 )
 texture = ExtResource( 8 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Menu" parent="CanvasLayer" instance=ExtResource( 9 )]
-visible = false
