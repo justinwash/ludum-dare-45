@@ -1,10 +1,11 @@
 extends Node2D
 const Leaf = preload("../items/Leaf/Leaf.gd")
 const Mushroom = preload("../items/Mushroom/Mushroom.gd")
+const MAX_ITEMS_PLACED = 50
 
 func _ready():
-	for i in range(10):
-		var posVector = getRandomVector2(10, 10)
+	for i in range(MAX_ITEMS_PLACED):
+		var posVector = getRandomVector2(400, 400)
 		print(posVector)
 		var newItem = getRandomItem()
 		(newItem as Node2D).position = posVector
