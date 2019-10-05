@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tree.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combo_counter.gd" type="Script" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://grass.jpg" type="Texture" id=3]
+[ext_resource path="res://tree.tscn" type="PackedScene" id=4]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass.jpg 0"
@@ -47,5 +48,30 @@ editor_draw_limits = true
 
 [node name="forest" type="Node2D" parent="."]
 
-[node name="tree" parent="forest" instance=ExtResource( 1 )]
-position = Vector2( 120.12, 46.9001 )
+[node name="tree" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 128.284, 42.2347 )
+
+[node name="tree2" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 456.029, 184.529 )
+
+[node name="tree3" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 405.876, 151.872 )
+
+[node name="tree4" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 358.056, 128.545 )
+
+[node name="tree5" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 297.405, 99.3859 )
+
+[node name="tree6" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 243.753, 72.5598 )
+
+[node name="tree7" parent="forest" instance=ExtResource( 4 )]
+position = Vector2( 191.267, 53.8982 )
+
+[node name="combo_counter" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[editable path="forest/tree"]
+
+[editable path="forest/tree/tree-top"]

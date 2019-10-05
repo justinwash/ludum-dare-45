@@ -5,19 +5,21 @@ export var MAX_Y_DISTANCE = 24
 
 var top
 var shadow
+var initial_shadow_scale
 
 func _ready():
 	top = get_node("tree-top")
 	initial_y = top.position.y
 	shadow = get_node("tree-shadow")
+	initial_shadow_scale = shadow.scale.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var x_scale = abs(initial_y / top.position.y)
-	var scale = Vector2(x_scale, x_scale)
-
-	if top.position.y < initial_y and x_scale <= 1:
-		shadow.set_scale(scale)
+#	var x_scale = (top.position.y - initial_y) / top.position.y
+#	var scale = Vector2(x_scale, x_scale)
+#
+#	if top.position.y < initial_y and x_scale <= 1:
+#		shadow.set_scale(scale)
 
 	shadow.position.x = top.position.x
 	if top.position.y > initial_y + MAX_Y_DISTANCE:
@@ -27,6 +29,6 @@ func _physics_process(delta):
 		top.get_node("CollisionShape2D").disabled = true
 		top.get_node("CollisionShape2D2").disabled = true
 	else:
-		print(scale)
+		pass
 
 
