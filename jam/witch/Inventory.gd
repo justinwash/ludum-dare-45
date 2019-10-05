@@ -10,8 +10,8 @@ func add_item(id):
 		if item.id == id:
 			item.quantity += 1
 
-func remove_item(id, quantity):
-    if quantity > 0:
-        pass
-    else:
-        print("Cannot remove a negative amount of item")
+func remove_item(id):
+	for item in get_children():
+		if item.id == id:
+			if item.quantity > 0:
+				item.quantity -= 1
