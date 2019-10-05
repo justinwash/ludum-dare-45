@@ -49,3 +49,4 @@ text = "Broom Count: 0"
 script = ExtResource( 3 )
 [connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
 [connection signal="button_up" from="GetBroom" to="." method="_on_Button2_button_up"]
+[connection signal="button_up" from="RemoveBroom" to="." method="_on_RemoveBroom_button_up"]
