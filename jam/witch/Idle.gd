@@ -1,4 +1,5 @@
 extends "res://State.gd"
+const Updates = preload("Updates.gd") # Relative path
 
 func enter():
 	.enter()
@@ -6,7 +7,7 @@ func enter():
 	print("idle")
 
 func update(delta):
-	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
+	if Updates.check_walk():
 		emit_signal("change_state", "walk")
-	if Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"):
-		emit_signal("change_state", "walk")
+	if Updates.check_grab(): 
+		emit_signal("change_state", "grabbing")
