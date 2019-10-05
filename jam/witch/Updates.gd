@@ -7,6 +7,6 @@ static func check_walk() -> bool:
 	return false
 		
 static func check_grab() -> bool: 
-	if Input.is_key_pressed(KEY_E): 
+	if Input.is_action_just_pressed("player_interact"): 
 		return true
 	return false
