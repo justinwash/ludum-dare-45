@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var id
 var item_name
