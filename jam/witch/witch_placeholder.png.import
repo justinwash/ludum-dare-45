@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1st_Mushroom-1.png-b24a2a8872e86e0b870743018bf6f4ea.stex"
+path="res://.import/witch_placeholder.png-f27902b6c3a82685129256b31f538fb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://1st_Mushroom-1.png"
-dest_files=[ "res://.import/1st_Mushroom-1.png-b24a2a8872e86e0b870743018bf6f4ea.stex" ]
+source_file="res://witch_placeholder.png"
+dest_files=[ "res://.import/witch_placeholder.png-f27902b6c3a82685129256b31f538fb9.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

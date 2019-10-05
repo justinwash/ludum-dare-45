@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tiles/wall.png" type="Texture" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://swamp-tileset.png" type="Texture" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -37,6 +38,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="Main" type="Node2D"]
 position = Vector2( 210.283, 103.788 )
 
+[node name="swamp-tileset" type="Sprite" parent="."]
+position = Vector2( -150.509, 54.7217 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
@@ -45,12 +51,12 @@ collision_use_kinematic = true
 format = 1
 tile_data = PoolIntArray( -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, 196607, 0, 0, 196622, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 48.6543, 48.9924 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="Shroom" parent="." instance=ExtResource( 3 )]
-position = Vector2( -103.098, 88.0368 )
+[node name="Shroom" parent="." instance=ExtResource( 2 )]
+position = Vector2( -165.813, 12.0258 )

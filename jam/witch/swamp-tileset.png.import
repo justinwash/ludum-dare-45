@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1st_Mushroom-1.png-b24a2a8872e86e0b870743018bf6f4ea.stex"
+path="res://.import/swamp-tileset.png-d27e59adf7d49a9c19257d8991b63289.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://1st_Mushroom-1.png"
-dest_files=[ "res://.import/1st_Mushroom-1.png-b24a2a8872e86e0b870743018bf6f4ea.stex" ]
+source_file="res://swamp-tileset.png"
+dest_files=[ "res://.import/swamp-tileset.png-d27e59adf7d49a9c19257d8991b63289.stex" ]
 
 [params]
 

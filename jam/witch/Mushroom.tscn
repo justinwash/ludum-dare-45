@@ -18,5 +18,5 @@ position = Vector2( 2.76706, 0.96353 )
 shape = SubResource( 1 )
 
 [node name="mushroom_picture" type="Sprite" parent="."]
-position = Vector2( -8.1693, 1.41233 )
+position = Vector2( 50.8307, 50.4123 )
 texture = ExtResource( 1 )
