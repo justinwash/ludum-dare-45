@@ -1,4 +1,5 @@
 extends "res://State.gd"
+const Updates = preload("Updates.gd") # Relative path
 
 func enter():
 	.enter()
@@ -6,9 +7,7 @@ func enter():
 	print("Grabbing")
 
 func update(delta):
-	if Input.is_action_just_released("player_interact"):
+	if Updates.check_grab():
 		emit_signal("change_state", "grabbing")
-	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
-		emit_signal("change_state", "walk")
-	if Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_down"):
+	if Updates.check_walk(): 
 		emit_signal("change_state", "walk")
