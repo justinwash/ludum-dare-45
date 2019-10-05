@@ -53,4 +53,4 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Shroom" parent="." instance=ExtResource( 3 )]
-position = Vector2( -101.487, 88.0368 )
+position = Vector2( -103.098, 88.0368 )
