@@ -2,10 +2,12 @@ extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
 
 var inventory
+var player
 
 func enter():
 	.enter()
 	inventory = get_node("../../Inventory")
+	player = get_node("../../../Player")
 
 	print("Grabbing")
 	var item_to_grab = getNearestItem()
@@ -18,6 +20,7 @@ func enter():
 		var object_to_interact = getNearestInteractable()
 		if object_to_interact:
 			print("interacting with " + str(object_to_interact.name))
+			object_to_interact.interact()
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);

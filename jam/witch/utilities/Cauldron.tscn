@@ -6,9 +6,11 @@
 [node name="Cauldron" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="MainSprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Item1" type="Node" parent="."]
+[node name="Item1Sprite" type="Sprite" parent="."]
+position = Vector2( -15, -40 )
 
-[node name="Item2" type="Node" parent="."]
+[node name="Item2Sprite" type="Sprite" parent="."]
+position = Vector2( 15, -40 )
