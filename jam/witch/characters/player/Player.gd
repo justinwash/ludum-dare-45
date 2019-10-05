@@ -19,6 +19,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("player_interact") && len(interacting_with.dialog_sequence) > interacting_with.current_phrase + 1:
 			interacting_with.current_phrase += 1
 			dialog_ref.text_box.set_text(interacting_with.dialog_sequence[interacting_with.current_phrase])
+		elif Input.is_action_just_pressed("player_interact"):
+			interacting_with.current_phrase = 0
+			dialog_ref.visible = false
 
 func _on_DialogTrigger_area_entered(area):
 	interacting_with = area.get_parent()
