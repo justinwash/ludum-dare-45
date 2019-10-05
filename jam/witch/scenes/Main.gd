@@ -4,11 +4,12 @@ const Mushroom = preload("../items/Mushroom/Mushroom.tscn")
 const MAX_ITEMS_PLACED = 50
 const X_MAX = 400
 const Y_MAX = 400
+const ITEM_GROUP = "Item"
+const ITEMS_NODE = "Items"
 
 func _ready():
 	for i in range(MAX_ITEMS_PLACED):
 		var posVector = getRandomVector2(X_MAX, Y_MAX)
-		print(posVector)
 		var newItem = getRandomItem()
 		(newItem as Node2D).position = posVector
 		addItemToItems(newItem)
@@ -22,15 +23,10 @@ func getRandomItem():
 	var items = [Leaf, Mushroom]
 	var index = (randi()%items.size()+1)-1
 	var item = items[index]
-	if (index == 0):
-		print("Making a leaf")
-	else:
-		print("Making a shroom")
 	return item.instance()
 
 func addItemToItems(item): 
-	var Items = get_node("Items")
+	var Items = get_node(ITEMS_NODE)
 	Items.add_child(item)
-	(item as Node2D).add_to_group("Item")
+	(item as Node2D).add_to_group(ITEM_GROUP)
 #	Items.add_child_below_node(Items, item)
-	print(Items.get_child_count())
