@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tiles/wall.png" type="Texture" id=1]
-[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Mushroom.tscn" type="PackedScene" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -45,12 +45,41 @@ collision_use_kinematic = true
 format = 1
 tile_data = PoolIntArray( -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, 196607, 0, 0, 196622, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 48.6543, 48.9924 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="Shroom" parent="." instance=ExtResource( 2 )]
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Mushroom" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( -165.813, 12.0258 )
+
+[node name="Mushroom2" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -156.382, 68.6127 )
+
+[node name="Mushroom3" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -133.233, 177.5 )
+
+[node name="Mushroom4" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -102.367, 261.523 )
+
+[node name="Mushroom5" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -289.275, 143.205 )
+
+[node name="Mushroom6" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -306.423, 58.3242 )

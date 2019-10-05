@@ -5,13 +5,14 @@ var inventory
 
 func enter():
 	.enter()
+	inventory = get_node("../../Inventory")
 
 	print("Grabbing")
-	inventory = get_parent().get_parent().get_node("Inventory")
-	var nearestShroom = getNearestGrabbableShroom()
-	if(nearestShroom):
-		inventory.add_item_by_name("Mushroom")
-		print("GOT A SHROOM")
+	var item_to_grab = getNearestItem()
+	if(item_to_grab):
+		inventory.add_item_by_name(item_to_grab.item_name)
+		item_to_grab.free()
+		print("got an item")
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
@@ -22,14 +23,14 @@ func update(delta):
 	if Updates.check_walk():
 		emit_signal("change_state", "walk")
 
-func getNearestGrabbableShroom():
-	var shroom = actor.get_parent().get_node("Shroom")
-	var distanceToActor = (shroom as Node2D).position.distance_to((actor as KinematicBody2D).position)
+func getNearestItem():
+	var items = get_tree().get_nodes_in_group("Item")
+	for item in items:
+		var distanceToActor = item.position.distance_to(actor.position)
 
-	if(distanceToActor<100):
-		print(distanceToActor)
-		return shroom;
-	else:
-		print("Nothing to grab :(")
-
+		if(distanceToActor<100):
+			print(distanceToActor)
+			return item;
+		else:
+			print("Nothing to grab :(")
 	return
