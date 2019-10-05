@@ -1,4 +1,4 @@
-extends "res://Item.gd"
+extends "res://inventory/Item.gd"
 
 func _ready():
 	id = 0

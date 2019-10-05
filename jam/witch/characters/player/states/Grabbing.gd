@@ -1,4 +1,4 @@
-extends "res://State.gd"
+extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
 
 var inventory
@@ -13,6 +13,8 @@ func enter():
 		inventory.add_item_by_name(item_to_grab.item_name)
 		item_to_grab.free()
 		print("got an item")
+	else:
+		print("Nothing to take")
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
@@ -28,9 +30,7 @@ func getNearestItem():
 	for item in items:
 		var distanceToActor = item.position.distance_to(actor.position)
 
-		if(distanceToActor<100):
+		if(distanceToActor < 50):
 			print(distanceToActor)
 			return item;
-		else:
-			print("Nothing to grab :(")
-	return
+	return null

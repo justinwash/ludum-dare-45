@@ -1,4 +1,4 @@
-extends "res://FiniteStateMachine.gd"
+extends "res://utilities/FiniteStateMachine.gd"
 
 func _ready():
 	states = {

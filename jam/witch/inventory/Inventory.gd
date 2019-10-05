@@ -1,6 +1,6 @@
 extends Node
 
-var Items = load("res://Items.gd").new()
+var Items = load("res://inventory/Items.gd").new()
 
 func _ready():
 	for type in Items.types:

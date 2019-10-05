@@ -1,4 +1,4 @@
-extends "res://State.gd"
+extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
 
 func enter():

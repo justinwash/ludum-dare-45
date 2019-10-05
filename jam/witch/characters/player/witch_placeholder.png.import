@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swamp-tileset.png-d27e59adf7d49a9c19257d8991b63289.stex"
+path="res://.import/witch_placeholder.png-454545d8db1751c9499b04217ef50f29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://swamp-tileset.png"
-dest_files=[ "res://.import/swamp-tileset.png-d27e59adf7d49a9c19257d8991b63289.stex" ]
+source_file="res://characters/player/witch_placeholder.png"
+dest_files=[ "res://.import/witch_placeholder.png-454545d8db1751c9499b04217ef50f29.stex" ]
 
 [params]
 

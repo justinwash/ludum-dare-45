@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://1st_Mushroom-1.png" type="Texture" id=1]
-[ext_resource path="res://items/Mushroom.gd" type="Script" id=2]
+[ext_resource path="res://items/Mushroom/Mushroom.png" type="Texture" id=1]
+[ext_resource path="res://items/Mushroom/Mushroom.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.72777, 0.985176 )
@@ -20,5 +20,6 @@ position = Vector2( 2.76706, 0.96353 )
 shape = SubResource( 1 )
 
 [node name="mushroom_picture" type="Sprite" parent="."]
-position = Vector2( 50.8307, 50.4123 )
+position = Vector2( 26.8307, 31.4123 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

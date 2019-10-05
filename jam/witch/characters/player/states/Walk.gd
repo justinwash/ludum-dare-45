@@ -1,4 +1,4 @@
-extends "res://State.gd"
+extends "res://utilities/State.gd"
 
 func enter():
 	.enter()
