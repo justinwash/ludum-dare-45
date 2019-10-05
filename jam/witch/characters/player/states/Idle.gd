@@ -6,7 +6,7 @@ func enter():
 
 	print("idle")
 
-func update(delta):
+func update():
 	if Updates.check_walk():
 		emit_signal("change_state", "walk")
 	if Updates.check_grab():

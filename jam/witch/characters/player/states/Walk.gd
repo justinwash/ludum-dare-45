@@ -5,7 +5,7 @@ func enter():
 
 	print("walk")
 
-func update(delta):
+func update():
 	if Input.is_action_pressed("ui_right"):
 		actor.move_dir.x = 1
 	elif Input.is_action_pressed("ui_left"):

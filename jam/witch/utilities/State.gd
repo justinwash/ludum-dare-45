@@ -9,5 +9,5 @@ func enter():
 func exit():
 	return
 
-func update(delta):
+func update():
 	return

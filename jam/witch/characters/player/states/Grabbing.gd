@@ -19,7 +19,7 @@ func enter():
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
 
-func update(delta):
+func update():
 	if Updates.check_grab():
 		emit_signal("change_state", "grabbing")
 	if Updates.check_walk():
