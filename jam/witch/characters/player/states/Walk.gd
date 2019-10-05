@@ -1,5 +1,5 @@
 extends "res://utilities/State.gd"
-const Updates = preload("Updates.gd") 
+const Updates = preload("Updates.gd")
 
 func enter():
 	.enter()
@@ -20,7 +20,7 @@ func update():
 		actor.move_dir.y = 1
 	else:
 		actor.move_dir.y = 0
-	
+
 	if Updates.check_grab():
 		emit_signal("change_state", "grabbing")
 
