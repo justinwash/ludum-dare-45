@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/states/StateMachine.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://characters/player/witch_placeholder.png" type="Texture" id=8]
 [ext_resource path="res://items/Leaf/Leaf.png" type="Texture" id=9]
+[ext_resource path="res://characters/player/CarriedItem.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1044, 11.2855 )
@@ -50,3 +51,4 @@ visible = false
 position = Vector2( 12, 10 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
+script = ExtResource( 10 )

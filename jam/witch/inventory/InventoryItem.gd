@@ -32,3 +32,4 @@ func _on_Carry_button_up():
 		var carried = PlayerRef.get_node("CarriedItem")
 		carried.set_texture(ItemImage.texture)
 		carried.visible = true
+		carried.current_item = ItemRef

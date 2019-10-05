@@ -15,6 +15,9 @@ func enter():
 		print("got an item")
 	else:
 		print("Nothing to take")
+		var object_to_interact = getNearestInteractable()
+		if object_to_interact:
+			print("interacting with " + str(object_to_interact.name))
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
@@ -29,6 +32,16 @@ func update():
 
 func getNearestItem():
 	var items = get_tree().get_nodes_in_group("Item")
+	for item in items:
+		var distanceToActor = item.position.distance_to(actor.position)
+
+		if(distanceToActor < 50):
+			print(distanceToActor)
+			return item;
+	return null
+	
+func getNearestInteractable():
+	var items = get_tree().get_nodes_in_group("Interactable")
 	for item in items:
 		var distanceToActor = item.position.distance_to(actor.position)
 
