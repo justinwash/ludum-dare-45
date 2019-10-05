@@ -19,6 +19,11 @@ config/name="top-down"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [input]
 
 player_interact={
@@ -28,5 +33,8 @@ player_interact={
 }
 
 [rendering]
+
+quality/2d/use_pixel_snap=true
+quality/filters/anisotropic_filter_level=16
 
 environment/default_environment="res://default_env.tres"
