@@ -30,3 +30,10 @@ margin_top = 13.0
 margin_right = 74.0
 margin_bottom = 27.0
 text = "0"
+
+[node name="Carry" type="Button" parent="HBoxContainer"]
+margin_left = 78.0
+margin_right = 122.0
+margin_bottom = 40.0
+text = "Carry"
+[connection signal="button_up" from="HBoxContainer/Carry" to="." method="_on_Carry_button_up"]
