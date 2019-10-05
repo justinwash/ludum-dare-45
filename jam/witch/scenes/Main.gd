@@ -2,15 +2,24 @@ extends Node2D
 const Leaf = preload("../items/Leaf/Leaf.tscn")
 const Mushroom = preload("../items/Mushroom/Mushroom.tscn")
 const MAX_ITEMS_PLACED = 50
-const X_MAX = 400
-const Y_MAX = 400
+const X_MAX = 1000
+const Y_MAX = 1000
 const ITEM_GROUP = "Item"
 const ITEMS_NODE = "Items"
 
 func _ready():
+	var lastPositionPlaced = Vector2(50, 50);
+	
 	for i in range(MAX_ITEMS_PLACED):
-		var posVector = getRandomVector2(X_MAX, Y_MAX)
+		var posVector
 		var newItem = getRandomItem()
+		
+		if(shouldBiasPlacement()):
+			posVector = getBiasedVector(lastPositionPlaced)
+		else:
+			posVector = getRandomVector2(X_MAX, Y_MAX)
+			
+		lastPositionPlaced = posVector
 		(newItem as Node2D).position = posVector
 		addItemToItems(newItem)
 		
@@ -18,6 +27,28 @@ func getRandomVector2(xMax, yMax) -> Vector2:
 	var xPos = randi()%xMax+1
 	var yPos = randi()%yMax+1
 	return Vector2(xPos, yPos)
+	
+func shouldBiasPlacement():
+	return _fiftyfifty()
+	
+func _fiftyfifty():
+	return bool((randi()%2+1)-1)
+	
+func getBiasedVector(vector): 
+	var xChange = (randi()%50+1)-1
+	var yChange = (randi()%50+1)-1
+	var posOrNeg = _fiftyfifty()
+	var xPos
+	var yPos
+	
+	if (posOrNeg):
+		xPos = (vector as Vector2).x + xChange
+		yPos = (vector as Vector2).y + yChange
+	else:
+		xPos = (vector as Vector2).x - xChange
+		yPos = (vector as Vector2).y - yChange
+		
+	return Vector2(xPos, yPos) 
 
 func getRandomItem():
 	var items = [Leaf, Mushroom]
