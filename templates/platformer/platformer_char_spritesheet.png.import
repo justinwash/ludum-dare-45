@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/platformer_char_spritesheet.png-2a3e26d4503e00da4b192200b04c88c4.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
