@@ -9,7 +9,7 @@
 script = ExtResource( 2 )
 
 [node name="Acorn" type="Sprite" parent="."]
-position = Vector2( 9.70865, 8.97355 )
+position = Vector2( 1.62262, 0.887513 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
