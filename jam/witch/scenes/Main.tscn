@@ -7,9 +7,9 @@
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=7]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=9]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -240,6 +240,7 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 48.6543, 48.9924 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
@@ -251,6 +252,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Items" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Mushroom" parent="Items" groups=[
 "Item",
@@ -304,19 +306,19 @@ position = Vector2( -150.283, -53.788 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 10 )]
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Menu" parent="Canvas" instance=ExtResource( 8 )]
+[node name="Menu" parent="Canvas" instance=ExtResource( 9 )]
 visible = false
 
 [node name="Cauldron" parent="." groups=[
 "Interactable",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 10 )]
 position = Vector2( -40.283, 96.212 )
 scale = Vector2( 0.25, 0.25 )
 

@@ -2,7 +2,8 @@ extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
 var Items = load("res://inventory/Items.gd")
 
-onready var InventoryItemTemplate = preload("res://inventory/InventoryItem.tscn")
+onready var InventoryItemTemplate = preload("res://InventoryTest.tscn")
+onready var invtest = preload("res://InventoryTest.tscn")
 
 var inventory
 var menu
@@ -11,23 +12,24 @@ var player
 
 func enter():
 	.enter()
-	inventory = get_node("../../Inventory")
-	menu = get_node("../../../Canvas/Menu")
-	itemlist = get_node("../../../Canvas/Menu/ItemList")
-	player = get_node("../../../Player")
+	add_child(invtest.instance())
+	# inventory = get_node("../../Inventory")
+	# menu = get_node("../../../Canvas/Menu")
+	# itemlist = get_node("../../../Canvas/Menu/ItemList")
+	# player = get_node("../../../Player")
 
-	print("Menu")
-	recursive_show(menu, true)
+	# print("Menu")
+	# recursive_show(menu, true)
 
-	for item in inventory.getItemsInInventory():
-		var menu_item = InventoryItemTemplate.instance()
-		var instance = Items.getInstanceOfItemByItemName(item.name)
-		itemlist.add_child(menu_item)
-		menu_item.set_name(item.name)
-		menu_item.set_image(instance.texture)
-		menu_item.set_count(item.quantity)
-		menu_item.set_ref(instance)
-		menu_item.set_player_ref(player)
+	# for item in inventory.getItemsInInventory():
+	# 	var menu_item = InventoryItemTemplate.instance()
+	# 	var instance = Items.getInstanceOfItemByItemName(item.name)
+	# 	itemlist.add_child(menu_item)
+	# 	menu_item.set_name(item.name)
+	# 	menu_item.set_image(instance.texture)
+	# 	menu_item.set_count(item.quantity)
+	# 	menu_item.set_ref(instance)
+	# 	menu_item.set_player_ref(player)
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
