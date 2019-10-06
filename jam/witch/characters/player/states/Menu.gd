@@ -14,7 +14,7 @@ var instance
 
 func enter():
 	.enter()
-	
+
 	canvas = get_node("../../../Canvas")
 
 	# if we don't already have a menu instance we need to create one
@@ -22,7 +22,7 @@ func enter():
 		instance = invtest.instance()
 		canvas.add_child(instance)
 		print("created menu instance")
-	
+
 	print("Menu")
 	instance.visible = true
 	instance.refresh_items()
