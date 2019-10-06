@@ -22,6 +22,9 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("player_interact"):
 			interacting_with.current_phrase = 0
 			dialog_ref.visible = false
+			
+	# Animations
+	
 
 func _on_DialogTrigger_area_entered(area):
 	interacting_with = area.get_parent()
