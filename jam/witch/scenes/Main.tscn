@@ -257,10 +257,8 @@ position = Vector2( 260, 40.9189 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Cauldron" parent="." groups=[
-"Interactable",
-] instance=ExtResource( 9 )]
-position = Vector2( 217.491, -19.7549 )
+[node name="Cauldron" parent="." instance=ExtResource( 9 )]
+position = Vector2( 275.046, 66.4071 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]

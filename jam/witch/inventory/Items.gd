@@ -27,4 +27,5 @@ static func getInstanceOfItemByItemName(itemName):
 	var items = getNamedItemTypes()
 	var item = items[itemName]
 	var instance = item.new()
+	print(str(instance))
 	return instance

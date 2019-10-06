@@ -1,34 +1,3 @@
-# extends Node
-
-# var PlayerRef
-
-# var ItemRef
-# var ItemName
-# var ItemImage
-# var ItemCount
-# var count
-
-# func _ready():
-# 	ItemName = get_node("HBoxContainer/ItemName")
-# 	ItemImage = get_node("HBoxContainer/ItemImage")
-# 	ItemCount = get_node("HBoxContainer/ItemCount")
-
-# func set_name(name):
-# 	ItemName.text = name
-
-# func set_image(image):
-# 	ItemImage.set_texture(image)
-
-# func set_count(count):
-# 	ItemCount.text = str(count)
-# 	self.count = count
-
-# func set_ref(node):
-# 	ItemRef = node
-
-# func set_player_ref(player):
-# 	PlayerRef = player
-
 extends Control
 
 var item_list

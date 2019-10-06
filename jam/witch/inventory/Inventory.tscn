@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://inventory/InventoryTest.gd" type="Script" id=1]
+[ext_resource path="res://inventory/InventoryUI.gd" type="Script" id=1]
 
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
@@ -9,12 +9,13 @@ script = ExtResource( 1 )
 
 [node name="ItemList" type="ItemList" parent="."]
 margin_right = 250.0
-margin_bottom = 590.0
+margin_bottom = 600.0
 auto_height = true
+fixed_icon_size = Vector2( 32, 32 )
 
 [node name="QuantityList" type="ItemList" parent="."]
-margin_left = 251.0
-margin_top = -1.0
-margin_right = 330.0
-margin_bottom = 589.0
-auto_height = true
+margin_left = 250.0
+margin_right = 310.0
+margin_bottom = 600.0
+fixed_icon_size = Vector2( 32, 32 )
+[connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]
