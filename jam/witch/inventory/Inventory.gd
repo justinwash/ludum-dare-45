@@ -18,8 +18,6 @@ func add_item_by_name(item_name):
 	if (playerCollectedItems.size() == 0 || shouldCreateItem):
 		_createItemEntryByName(item_name)
 
-	print_collected_items()
-
 func _createItemEntryByName(itemName):
 	var entry = {"name": itemName, "quantity": 1}
 	playerCollectedItems.push_front(entry)
@@ -36,3 +34,6 @@ func print_collected_items():
 		print("**ITEM**")
 		print(item.name)
 		print(item.quantity)
+
+func getItemsInInventory():
+	return playerCollectedItems
