@@ -1,30 +1,15 @@
-<<<<<<< HEAD
-[gd_scene load_steps=20 format=2]
-
-[ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=1]
-[ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Main.gd" type="Script" id=6]
-[ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=10]
-[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=11]
-=======
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=9]
->>>>>>> fix-merge
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "swamp-tileset.png 0"
@@ -188,8 +173,8 @@
 15/shapes = [  ]
 15/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 26.4055, 31.4135 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27.7312, 29.622 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( 210.283, 103.788 )
@@ -203,13 +188,8 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 
 [node name="Player" parent="." groups=[
 "Player",
-<<<<<<< HEAD
 ] instance=ExtResource( 9 )]
-position = Vector2( 211.89, -28.5289 )
-=======
-] instance=ExtResource( 8 )]
-position = Vector2( 48.6543, 48.9924 )
->>>>>>> fix-merge
+position = Vector2( 218.193, -28.5289 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -221,7 +201,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="Mushroom" parent="Items" groups=[
 "Item",
 ] instance=ExtResource( 4 )]
-position = Vector2( -165.813, 12.0258 )
+position = Vector2( -196.695, 88.2866 )
 
 [node name="Mushroom2" parent="Items" groups=[
 "Item",
@@ -251,34 +231,26 @@ position = Vector2( -100.283, 136.212 )
 [node name="Leaf2" parent="Items" groups=[
 "Item",
 ] instance=ExtResource( 6 )]
-position = Vector2( 214.011, -45.7968 )
+position = Vector2( 146.574, 61.3465 )
 
 [node name="Leaf" parent="Items" groups=[
 "Item",
 ] instance=ExtResource( 6 )]
-position = Vector2( 71.4712, -36.8372 )
+position = Vector2( 146.471, 125.769 )
 
 [node name="Leaf3" parent="Items" groups=[
 "Item",
 ] instance=ExtResource( 6 )]
-position = Vector2( 150.479, -4.25672 )
+position = Vector2( 148.588, 89.6512 )
 
-<<<<<<< HEAD
 [node name="NPC" parent="." instance=ExtResource( 3 )]
-=======
-[node name="NPC" parent="." instance=ExtResource( 9 )]
->>>>>>> fix-merge
 position = Vector2( -150.283, -53.788 )
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-<<<<<<< HEAD
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 5 )]
-=======
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 7 )]
->>>>>>> fix-merge
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 
@@ -287,16 +259,16 @@ layer = 3
 
 [node name="Cauldron" parent="." groups=[
 "Interactable",
-] instance=ExtResource( 3 )]
-position = Vector2( -40.283, 96.212 )
+] instance=ExtResource( 7 )]
+position = Vector2( 217.491, -19.7549 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
-position = Vector2( 250.725, -38.7039 )
-texture = ExtResource( 11 )
+position = Vector2( 260.113, -40.4956 )
+texture = ExtResource( 10 )
 
 [node name="Area2D" type="Area2D" parent="Cutie_lil_witch_cabin"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
-position = Vector2( 2.521, -0.630257 )
-shape = SubResource( 8 )
+position = Vector2( 1.2605, 0 )
+shape = SubResource( 2 )
