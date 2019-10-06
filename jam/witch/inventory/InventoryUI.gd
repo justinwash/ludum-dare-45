@@ -25,7 +25,7 @@ func refresh_items():
 	for item in inventory.playerCollectedItems:
 		item_list.add_item(item.name, load("res://items/" + item.name + "/" + item.name + ".png"))
 		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
-		
+
 
 func _physics_process(delta):
 	var new_selected = item_list.get_selected_items()
