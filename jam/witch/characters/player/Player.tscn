@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/states/StateMachine.gd" type="Script" id=2]
@@ -7,14 +7,76 @@
 [ext_resource path="res://characters/player/states/Interact.gd" type="Script" id=5]
 [ext_resource path="res://characters/player/states/Menu.gd" type="Script" id=6]
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=7]
-[ext_resource path="res://characters/player/witch_placeholder.png" type="Texture" id=8]
-[ext_resource path="res://characters/player/CarriedItem.gd" type="Script" id=10]
+[ext_resource path="res://characters/player/CarriedItem.gd" type="Script" id=8]
+[ext_resource path="res://characters/player/sprites/walkleft0.png" type="Texture" id=9]
+[ext_resource path="res://characters/player/sprites/walkleft1.png" type="Texture" id=10]
+[ext_resource path="res://characters/player/sprites/walkleft2.png" type="Texture" id=11]
+[ext_resource path="res://characters/player/sprites/walkleft3.png" type="Texture" id=12]
+[ext_resource path="res://characters/player/sprites/walkdown0.png" type="Texture" id=13]
+[ext_resource path="res://characters/player/sprites/walkdown1.png" type="Texture" id=14]
+[ext_resource path="res://characters/player/sprites/walkdown2.png" type="Texture" id=15]
+[ext_resource path="res://characters/player/sprites/walkdown3.png" type="Texture" id=16]
+[ext_resource path="res://characters/player/sprites/walkup0.png" type="Texture" id=17]
+[ext_resource path="res://characters/player/sprites/walkup1.png" type="Texture" id=18]
+[ext_resource path="res://characters/player/sprites/walkup2.png" type="Texture" id=19]
+[ext_resource path="res://characters/player/sprites/walkup3.png" type="Texture" id=20]
+[ext_resource path="res://characters/player/sprites/walkright0.png" type="Texture" id=21]
+[ext_resource path="res://characters/player/sprites/walkright1.png" type="Texture" id=22]
+[ext_resource path="res://characters/player/sprites/walkright2.png" type="Texture" id=23]
+[ext_resource path="res://characters/player/sprites/walkright3.png" type="Texture" id=24]
+[ext_resource path="res://characters/player/sprites/idle0.png" type="Texture" id=25]
+[ext_resource path="res://characters/player/sprites/idle1.png" type="Texture" id=26]
+[ext_resource path="res://characters/player/sprites/idle3.png" type="Texture" id=27]
+[ext_resource path="res://characters/player/sprites/idle2.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1044, 11.2855 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 49.8919
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walkleft",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "walkdown",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walkup",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "walkright",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "idledown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "idleleft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "idleright",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "idleup",
+"speed": 5.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -52,11 +114,17 @@ texture = ExtResource( 8 )
 visible = false
 position = Vector2( 12, 10 )
 scale = Vector2( 0.5, 0.5 )
-script = ExtResource( 10 )
+
+script = ExtResource( 8 )
+
 
 [node name="DialogTrigger" type="Area2D" parent="."]
 
 [node name="DialogTriggerRadius" type="CollisionShape2D" parent="DialogTrigger"]
 shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "walkdown"
 [connection signal="area_entered" from="DialogTrigger" to="." method="_on_DialogTrigger_area_entered"]
 [connection signal="area_exited" from="DialogTrigger" to="." method="_on_DialogTrigger_area_exited"]
