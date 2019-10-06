@@ -4,5 +4,6 @@ func _ready():
 	states = {
 		"idle": $Idle,
 		"walk": $Walk,
-		"grabbing": $Grabbing
+		"grabbing": $Grabbing,
+		"menu": $Menu
 	}
