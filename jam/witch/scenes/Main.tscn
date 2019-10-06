@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=9]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=10]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -240,7 +239,6 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 48.6543, 48.9924 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
@@ -313,12 +311,9 @@ position = Vector2( 260, 40.9189 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Menu" parent="Canvas" instance=ExtResource( 9 )]
-visible = false
-
 [node name="Cauldron" parent="." groups=[
 "Interactable",
-] instance=ExtResource( 10 )]
+] instance=ExtResource( 9 )]
 position = Vector2( -40.283, 96.212 )
 scale = Vector2( 0.25, 0.25 )
 
