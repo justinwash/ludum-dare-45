@@ -9,7 +9,7 @@ func enter():
 	inventory = get_node("../../Inventory")
 	player = get_node("../../../Player")
 
-	print("Grabbing")
+	print("Interacting")
 	var item_to_grab = getNearestItem()
 	if(item_to_grab):
 		inventory.add_item_by_name(item_to_grab.item_name)
