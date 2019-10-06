@@ -6,6 +6,7 @@ var ItemRef
 var ItemName
 var ItemImage
 var ItemCount
+var count
 
 func _ready():
 	ItemName = get_node("HBoxContainer/ItemName")
@@ -20,6 +21,7 @@ func set_image(image):
 
 func set_count(count):
 	ItemCount.text = str(count)
+	self.count = count
 
 func set_ref(node):
 	ItemRef = node
@@ -28,7 +30,7 @@ func set_player_ref(player):
 	PlayerRef = player
 
 func _on_Carry_button_up():
-	if ItemRef.quantity > 0:
+	if self.count > 0:
 		var carried = PlayerRef.get_node("CarriedItem")
 		carried.set_texture(ItemImage.texture)
 		carried.visible = true

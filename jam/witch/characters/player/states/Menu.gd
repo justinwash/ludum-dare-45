@@ -1,5 +1,6 @@
 extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
+var Items = load("res://inventory/Items.gd")
 
 onready var InventoryItemTemplate = preload("res://inventory/InventoryItem.tscn")
 
@@ -18,13 +19,14 @@ func enter():
 	print("Menu")
 	recursive_show(menu, true)
 
-	for item in inventory.get_children():
+	for item in inventory.getItemsInInventory():
 		var menu_item = InventoryItemTemplate.instance()
+		var instance = Items.getInstanceOfItemByItemName(item.name)
 		itemlist.add_child(menu_item)
-		menu_item.set_name(item.item_name)
-		menu_item.set_image(item.texture)
+		menu_item.set_name(item.name)
+		menu_item.set_image(instance.texture)
 		menu_item.set_count(item.quantity)
-		menu_item.set_ref(item)
+		menu_item.set_ref(instance)
 		menu_item.set_player_ref(player)
 
 
