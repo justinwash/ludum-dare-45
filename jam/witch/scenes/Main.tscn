@@ -10,6 +10,7 @@
 [ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=9]
 
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -226,6 +227,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 15/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 26.4055, 31.4135 )
+
 [node name="Main" type="Node2D"]
 position = Vector2( 210.283, 103.788 )
 script = ExtResource( 1 )
@@ -241,9 +245,6 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 ] instance=ExtResource( 3 )]
 position = Vector2( 48.6543, 48.9924 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
-
-[node name="CarriedItem" parent="Player" index="4"]
-texture = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -304,7 +305,7 @@ position = Vector2( -150.283, -53.788 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 8 )]
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 
@@ -317,4 +318,12 @@ layer = 3
 position = Vector2( -40.283, 96.212 )
 scale = Vector2( 0.25, 0.25 )
 
-[editable path="Player"]
+[node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
+position = Vector2( 250.725, -38.7039 )
+texture = ExtResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="Cutie_lil_witch_cabin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
+position = Vector2( 2.521, -0.630257 )
+shape = SubResource( 8 )
