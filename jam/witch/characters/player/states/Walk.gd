@@ -33,4 +33,6 @@ func update():
 	actor.move_and_slide(Vector2(actor.move_dir.x, actor.move_dir.y).normalized() * actor.MOVE_SPEED, Vector2(0, -1))
 
 	if actor.move_dir.x == 0 && actor.move_dir.y == 0:
+		$"../../AnimatedSprite".stop();
+		$"../../AnimatedSprite".set_frame(1);
 		emit_signal("change_state", "idle")
