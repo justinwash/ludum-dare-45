@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://ui/Button.gd" type="Script" id=2]
+[ext_resource path="res://ui/Button.gd" type="Script" id=1]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -19,5 +19,5 @@ margin_top = 62.8365
 margin_right = 308.193
 margin_bottom = 103.837
 text = "CLICK ME PLEASE"
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 [connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_Button_button_up"]
