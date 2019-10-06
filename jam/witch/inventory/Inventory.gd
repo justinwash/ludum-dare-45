@@ -16,13 +16,13 @@ func add_item_by_name(item_name):
 	else:
 		print("Player didn't have this item")
 		_createItemEntryByName(item_name)
-		
+
 func player_has_item_by_name(item_name):
 	for item in playerCollectedItems:
 		if item.name == item_name:
 			return true
 	return false
-	
+
 func get_item_by_name(item_name):
 	for item in playerCollectedItems:
 		if item.name == item_name:
