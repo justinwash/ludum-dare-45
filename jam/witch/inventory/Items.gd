@@ -22,3 +22,9 @@ static func getNamedItemTypes():
 
 static func getItemTypes():
 	return [Mushroom, Leaf, Acorn, Elderberry]
+
+static func getInstanceOfItemByItemName(itemName):
+	var items = getNamedItemTypes()
+	var item = items[itemName]
+	var instance = item.new()
+	return instance
