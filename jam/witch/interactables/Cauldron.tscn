@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interactables/Cauldron.gd" type="Script" id=1]
 [ext_resource path="res://interactables/Cauldron.png" type="Texture" id=2]
@@ -13,6 +13,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
+
 [node name="Cauldron" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -26,3 +29,9 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 frame = 1
 playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 2 )

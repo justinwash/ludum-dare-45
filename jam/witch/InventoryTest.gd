@@ -1,10 +1,12 @@
 extends Control
 
+var player_ref
 var item_list
 var inventory
 var selected = [1000]
 
 func _ready():
+	player_ref = get_node("../../Player")
 	inventory = load("res://inventory/Inventory.gd")
 	item_list = get_node("ItemList")
 	item_list.add_item("Mushroom", load("res://items/Mushroom/Mushroom.png"))
@@ -16,3 +18,10 @@ func _physics_process(delta):
 		if (new_selected[0] != selected[0]):
 			selected = new_selected
 			print(item_list.get_item_text(selected[0]))
+
+			var carried = player_ref.get_node("CarriedItem")
+			carried.set_texture(item_list.get_item_icon(selected[0]))
+			carried.visible = true
+			carried.current_item = inventory.get_item_by_name(item_list.get_item_text(selected[0]))
+			print(item_list.get_item_text(selected[0]))
+			print(carried)

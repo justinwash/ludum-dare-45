@@ -106,11 +106,17 @@ script = ExtResource( 6 )
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 7 )
 
+[node name="witch_placeholder" type="Sprite" parent="."]
+position = Vector2( -0.882568, -1.11301 )
+texture = ExtResource( 8 )
+
 [node name="CarriedItem" type="Sprite" parent="."]
 visible = false
 position = Vector2( 12, 10 )
 scale = Vector2( 0.5, 0.5 )
+
 script = ExtResource( 8 )
+
 
 [node name="DialogTrigger" type="Area2D" parent="."]
 
