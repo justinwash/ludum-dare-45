@@ -2,7 +2,7 @@ extends "res://inventory/Item.gd"
 
 var tex = preload("res://items/Mushroom/Mushroom.png")
 
-func _ready():
+func _init():
 	id = 0
 	item_name = "Mushroom"
 	quantity = 0

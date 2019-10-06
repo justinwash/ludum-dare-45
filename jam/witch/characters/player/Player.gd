@@ -30,6 +30,8 @@ func _on_DialogTrigger_area_entered(area):
 	elif (interacting_with.get("dialog_sequence")):
 		dialog_ref.text_box.set_text(interacting_with.dialog_sequence[0])
 		dialog_ref.visible = true
+	elif (interacting_with.is_in_group("Interactable")):
+		interacting_with.interactable_area_entered()
 
 func _on_DialogTrigger_area_exited(area):
 	interacting_with = area.get_parent()
@@ -38,3 +40,5 @@ func _on_DialogTrigger_area_exited(area):
 	elif (interacting_with.get("dialog_sequence")):
 		interacting_with.current_phrase = 0
 		dialog_ref.visible = false
+	elif (interacting_with.is_in_group("Interactable")):
+		interacting_with.interactable_area_exited()
