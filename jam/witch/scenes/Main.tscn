@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=10]
+[ext_resource path="res://characters/frog/Frog.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "swamp-tileset.png 0"
@@ -189,7 +190,7 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 [node name="Player" parent="." groups=[
 "Player",
 ] instance=ExtResource( 9 )]
-position = Vector2( 218.193, -28.5289 )
+position = Vector2( 113.362, -99.8571 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -197,6 +198,11 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Items" type="Node2D" parent="."]
+
+[node name="Leaf3" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 6 )]
+position = Vector2( 148.588, 89.6512 )
 
 [node name="Mushroom" parent="Items" groups=[
 "Item",
@@ -238,12 +244,11 @@ position = Vector2( 146.574, 61.3465 )
 ] instance=ExtResource( 6 )]
 position = Vector2( 146.471, 125.769 )
 
-[node name="Leaf3" parent="Items" groups=[
-"Item",
-] instance=ExtResource( 6 )]
-position = Vector2( 148.588, 89.6512 )
+[node name="Frog" parent="." instance=ExtResource( 11 )]
+position = Vector2( 82.6988, -104.447 )
+dialog_sequence = [ "Press [E] to talk", "Frog: Ah... you made it...", "Witch: Who are you? Why was I sent here?", "Frog: You must follow the stream to the...", " abandonded shack...", "There's a cauldron there, and...  ", "ingredients abound.", "That ought to get you started.", "Witch: But that doesn't answer my--", "Frog: All will be revealed in time ...Cordelia", "Cordelia: How do you know my name..." ]
 
-[node name="NPC" parent="." instance=ExtResource( 3 )]
+[node name="Ghost" parent="." instance=ExtResource( 3 )]
 position = Vector2( -150.283, -53.788 )
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
