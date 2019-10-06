@@ -2,13 +2,13 @@
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=7]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=10]
 
 [sub_resource type="TileSet" id=1]
@@ -188,7 +188,7 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 
 [node name="Player" parent="." groups=[
 "Player",
-] instance=ExtResource( 8 )]
+] instance=ExtResource( 3 )]
 position = Vector2( 218.193, -28.5289 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
@@ -243,21 +243,21 @@ position = Vector2( 146.471, 125.769 )
 ] instance=ExtResource( 6 )]
 position = Vector2( 148.588, 89.6512 )
 
-[node name="NPC" parent="." instance=ExtResource( 9 )]
+[node name="NPC" parent="." instance=ExtResource( 7 )]
 position = Vector2( -150.283, -53.788 )
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 3 )]
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 8 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Cauldron" parent="." instance=ExtResource( 7 )]
+[node name="Cauldron" parent="." instance=ExtResource( 9 )]
 position = Vector2( 275.046, 66.4071 )
 scale = Vector2( 0.25, 0.25 )
 

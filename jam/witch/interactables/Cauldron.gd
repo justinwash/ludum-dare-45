@@ -22,22 +22,31 @@ func interact():
 			items.append(carried.current_item)
 			inventory.remove_item_by_name(carried.current_item.item_name)
 
-			var image = TextureRect.new()
-			image.set_texture(carried.current_item.texture)
-			GridContainer.add_child(image)
+			refresh_item_display()
 
 			carried.current_item = null
 			carried.visible = false
+	else:
+		if items.size() > 0:
+			var removed_item = items.back()
+			items.remove(items.size()-1)
+			inventory.add_item_by_name(removed_item.item_name)
+			refresh_item_display()
 
 func interactable_area_entered():
-	for item in items:
-		var image = TextureRect.new()
-		image.set_texture(item.texture)
-		GridContainer.add_child(image)
+	refresh_item_display()
 	ColorRect.visible = true
 
 func interactable_area_exited():
 	for child in GridContainer.get_children():
 		child.free()
 	ColorRect.visible = false
+	
+func refresh_item_display():
+	for child in GridContainer.get_children():
+		child.free()
+	for item in items:
+		var image = TextureRect.new()
+		image.set_texture(item.texture)
+		GridContainer.add_child(image)
 
