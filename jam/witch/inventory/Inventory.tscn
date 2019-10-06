@@ -18,4 +18,15 @@ margin_left = 250.0
 margin_right = 310.0
 margin_bottom = 600.0
 fixed_icon_size = Vector2( 32, 32 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 20.0
+margin_top = 470.0
+margin_right = 230.0
+margin_bottom = 600.0
+text = "L CLICK: Select items from the list
+
+SPACE: Carry item (exit the menu -> [E] to put in the cauldron)
+
+TAB: Exit menu"
 [connection signal="item_activated" from="ItemList" to="." method="_on_ItemList_item_activated"]

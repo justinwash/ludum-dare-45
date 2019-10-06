@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://utilities/NPC.gd" type="Script" id=1]
+[ext_resource path="res://characters/toad/Toad.png" type="Texture" id=2]
+[ext_resource path="res://characters/toad/ToadTalk.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Toad" type="Node2D"]
+script = ExtResource( 1 )
+dialog_sequence = [ "Press [E] to talk", "TOAD: Ah, you made it.", "WITCH: Who are you?", "Why was I sent to this place?", "TOAD: You must follow the stream", "to the abandoned shack.", "There is a cauldron nearby", "and ingredients abound.", "WITCH: But what am I doing here?", "TOAD: All will be revealed in time... Cordelia", "CORDELIA: But how do you know my..." ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+playing = true
