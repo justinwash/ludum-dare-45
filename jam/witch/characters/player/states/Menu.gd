@@ -3,7 +3,7 @@ const Updates = preload("Updates.gd") # Relative path
 var Items = load("res://inventory/Items.gd")
 
 #onready var InventoryItemTemplate = preload("res://InventoryTest.tscn")
-onready var invtest = preload("res://InventoryTest.tscn")
+onready var invtest = preload("res://inventory/Inventory.tscn")
 
 var inventory
 var canvas
@@ -15,10 +15,7 @@ var instance
 func enter():
 	.enter()
 	
-	# inventory = get_node("../../Inventory")
 	canvas = get_node("../../../Canvas")
-	# itemlist = get_node("../../../Canvas/Menu/ItemList")
-	# player = get_node("../../../Player")
 
 	# if we don't already have a menu instance we need to create one
 	if not instance:
@@ -28,6 +25,7 @@ func enter():
 	
 	print("Menu")
 	instance.visible = true
+	instance.refresh_items()
 
 
 
@@ -36,8 +34,3 @@ func update():
 		instance.visible = false
 		emit_signal("change_state", "idle")
 
-#func recursive_show(node, b):
-#	for child in node.get_children():
-#		recursive_show(child, b)
-#	if node.get("visible"):
-#		node.visible = b
