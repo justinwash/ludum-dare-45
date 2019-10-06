@@ -1,17 +1,38 @@
 extends Node
 
-var Items = load("res://inventory/Items.gd").new()
+var Items = load("res://inventory/Items.gd")
+
+var playerCollectedItems = []
 
 func _ready():
-	for type in Items.types:
-		add_child(Items.types[type])
+	pass
 
 func add_item_by_name(item_name):
-	for item in get_children():
-		if item.item_name == item_name:
+	var shouldCreateItem = false
+	
+	for item in playerCollectedItems:
+		if (item.name == item_name):
 			item.quantity += 1
+		else:
+			shouldCreateItem = true
+	if (playerCollectedItems.size() == 0 || shouldCreateItem):
+		_createItemEntryByName(item_name)
+	
+	print_collected_items()
+
+func _createItemEntryByName(itemName):
+	var entry = {"name": itemName, "quantity": 1}
+	playerCollectedItems.push_front(entry)
+	return entry
 
 func remove_item_by_name(item_name):
-	for item in get_children():
-		if item.item_name == item_name && item.quantity > 0:
+	for item in playerCollectedItems:
+		if (item.name == item_name):
 			item.quantity -= 1
+
+func print_collected_items():
+	print("PRINTING ITEMS")
+	for item in playerCollectedItems:
+		print("**ITEM**")
+		print(item.name)
+		print(item.quantity)
