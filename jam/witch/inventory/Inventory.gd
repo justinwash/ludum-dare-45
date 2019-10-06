@@ -9,7 +9,7 @@ func _ready():
 
 func add_item_by_name(item_name):
 	var shouldCreateItem = false
-	
+
 	for item in playerCollectedItems:
 		if (item.name == item_name):
 			item.quantity += 1
@@ -17,7 +17,7 @@ func add_item_by_name(item_name):
 			shouldCreateItem = true
 	if (playerCollectedItems.size() == 0 || shouldCreateItem):
 		_createItemEntryByName(item_name)
-	
+
 	print_collected_items()
 
 func _createItemEntryByName(itemName):
