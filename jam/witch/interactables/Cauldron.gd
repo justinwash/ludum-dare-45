@@ -19,4 +19,3 @@ func interact():
 			inventory.remove_item_by_name(carried.current_item.item_name)
 			carried.current_item = null
 			carried.visible = false
-			$Item1Sprite.set_texture(items.back().texture)

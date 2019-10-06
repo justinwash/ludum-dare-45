@@ -14,10 +14,10 @@ func enter():
 	menu = get_node("../../../Canvas/Menu")
 	itemlist = get_node("../../../Canvas/Menu/ItemList")
 	player = get_node("../../../Player")
-	
+
 	print("Menu")
 	recursive_show(menu, true)
-	
+
 	for item in inventory.get_children():
 		var menu_item = InventoryItemTemplate.instance()
 		itemlist.add_child(menu_item)

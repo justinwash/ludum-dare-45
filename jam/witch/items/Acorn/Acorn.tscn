@@ -20,8 +20,8 @@ shape = SubResource( 1 )
 
 [node name="Label" type="RichTextLabel" parent="."]
 visible = false
-margin_left = -14.7019
-margin_top = -19.1124
-margin_right = 25.2981
-margin_bottom = 20.8876
+margin_left = -19.1125
+margin_top = -25.7282
+margin_right = 20.8875
+margin_bottom = 14.2718
 text = "Acorn"

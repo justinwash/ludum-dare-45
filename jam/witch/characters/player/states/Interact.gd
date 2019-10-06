@@ -42,7 +42,7 @@ func getNearestItem():
 			print(distanceToActor)
 			return item;
 	return null
-	
+
 func getNearestInteractable():
 	var items = get_tree().get_nodes_in_group("Interactable")
 	for item in items:

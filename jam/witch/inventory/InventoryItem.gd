@@ -23,7 +23,7 @@ func set_count(count):
 
 func set_ref(node):
 	ItemRef = node
-	
+
 func set_player_ref(player):
 	PlayerRef = player
 
