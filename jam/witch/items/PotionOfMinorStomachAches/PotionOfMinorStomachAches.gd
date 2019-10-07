@@ -10,3 +10,5 @@ func _init():
 	description = "This doesn't make me feel very well..."
 	texture = tex
 
+func consume():
+	print(self.description)
