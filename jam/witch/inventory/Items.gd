@@ -68,7 +68,7 @@ static func getNamedItemTypes():
 static func getItemTypes():
 	return [Acorn, Elderberry, Leaf, Mushroom, Feather,
 		PotionOfMinorStomachAches, CrunchyNaturePotion, TastyHealthPotion,
-		GreaterPotionOfMinorNarcolepsy, WeakPotionOfGreaterEnergy, 
+		GreaterPotionOfMinorNarcolepsy, WeakPotionOfGreaterEnergy,
 		PotionOfAdvancedRevelry, ScalyPotionOfEnhancedNausea, PotionOfToadspeak,
 		PotionOfDelusionaryToadform, PotionOfLifelongAnxiety, NightmareFuelConcoction,
 		PotionOfNeversleep, PsychoticEpisodeInABottle, ]

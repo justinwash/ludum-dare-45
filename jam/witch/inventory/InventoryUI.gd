@@ -34,7 +34,7 @@ func refresh_items():
 
 	money_label.text = "Money: " + str(player.get_money())
 	potion_label.text = "Potions Unlocked: %s/13" % str(player.potions_unlocked)
-	
+
 
 func _physics_process(delta):
 	var new_selected = item_list.get_selected_items()

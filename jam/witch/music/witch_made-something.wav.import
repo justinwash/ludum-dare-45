@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/witch_made-something.wav-c5cbc9d719dd67718a921ac71c3b4c4d.sample"
+
+[deps]
+
+source_file="res://music/witch_made-something.wav"
+dest_files=[ "res://.import/witch_made-something.wav-c5cbc9d719dd67718a921ac71c3b4c4d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
