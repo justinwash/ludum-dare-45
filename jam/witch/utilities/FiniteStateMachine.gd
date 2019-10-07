@@ -12,7 +12,7 @@ var actor = null
 
 func _ready():
 	for child in get_children():
-        child.connect("change_state", self, "_change_state")
+		child.connect("change_state", self, "_change_state")
 
 	actor = get_node(ACTOR)
 
