@@ -1,23 +1,29 @@
 extends Node
-const Mushroom = preload("res://items/Mushroom/Mushroom.gd")
-const Leaf = preload("res://items/Leaf/Leaf.gd")
+
 const Acorn = preload("res://items/Acorn/Acorn.gd")
 const Elderberry = preload("res://items/Elderberry/Elderberry.gd")
+const Leaf = preload("res://items/Leaf/Leaf.gd")
+const Mushroom = preload("res://items/Mushroom/Mushroom.gd")
 
+const PotionOfMinorStomachAches = preload("res://items/PotionOfMinorStomachAches/PotionOfMinorStomachAches.gd")
 
 var types = {
-	"Mushroom": load("res://items/Mushroom/Mushroom.gd").new(),
-	"Leaf": load("res://items/Leaf/Leaf.gd").new(),
 	"Acorn": load("res://items/Acorn/Acorn.gd").new(),
-	"Elderberry": load("res://items/Elderberry/Elderberry.gd").new()
+	"Elderberry": load("res://items/Elderberry/Elderberry.gd").new(),
+	"Leaf": load("res://items/Leaf/Leaf.gd").new(),
+	"Mushroom": load("res://items/Mushroom/Mushroom.gd").new(),
+	
+	"PotionOfMinorStomachAches": load("res://items/PotionOfMinorStomachAches/PotionOfMinorStomachAches.gd").new()
 }
 
 static func getNamedItemTypes():
 	return {
-		"Mushroom": Mushroom,
-		"Leaf": Leaf,
 		"Acorn": Acorn,
-		"Elderberry": Elderberry
+		"Elderberry": Elderberry,
+		"Leaf": Leaf,
+		"Mushroom": Mushroom,
+		
+		"Potion of Minor Stomach Aches": PotionOfMinorStomachAches
 	}
 
 static func getItemTypes():

@@ -23,7 +23,8 @@ func refresh_items():
 	quantity_list.clear()
 
 	for item in inventory.playerCollectedItems:
-		item_list.add_item(item.name, load("res://items/" + item.name + "/" + item.name + ".png"))
+		var item_inst = Items.getInstanceOfItemByItemName(item.name)
+		item_list.add_item(item_inst.item_name, item_inst.texture)
 		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
 
 

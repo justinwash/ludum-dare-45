@@ -1,9 +1,12 @@
 extends Node2D
 
+onready var Items = preload("res://inventory/Items.gd")
+
 var items = []
 
 var player
 var inventory
+
 
 var GridContainer
 var ColorRect
@@ -24,8 +27,10 @@ func interact():
 
 			refresh_item_display()
 
-			carried.current_item = null
-			carried.visible = false
+			carried.set_current_item(null)
+			carried.set_visibility(false)
+			
+			try_create_recipe()
 	else:
 		if items.size() > 0:
 			var removed_item = items.back()
@@ -49,4 +54,24 @@ func refresh_item_display():
 		var image = TextureRect.new()
 		image.set_texture(item.texture)
 		GridContainer.add_child(image)
-
+		
+func try_create_recipe():
+	var item_ids = []
+	for item in items:
+		item_ids.append(item.id)
+	
+	var potion
+	if item_ids.has(1) and item_ids.has(3):
+		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches")
+		remove_single_item_by_id(1)
+		remove_single_item_by_id(3)
+		items.append(potion)
+		refresh_item_display()
+		
+func remove_single_item_by_id(item_id):
+	var i = 0
+	for item in items:
+		if item.id == item_id:
+			items.remove(i)
+		i += 1
+	print(str(items))
