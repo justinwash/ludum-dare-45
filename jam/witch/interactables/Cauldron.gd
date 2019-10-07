@@ -13,7 +13,7 @@ var ColorRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node("../Player")
+	player = get_tree().get_root().get_node("Main/Player")
 	inventory = player.get_node("Inventory")
 	GridContainer = get_node("ColorRect/GridContainer")
 	ColorRect = get_node("ColorRect")
