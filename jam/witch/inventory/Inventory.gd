@@ -3,9 +3,10 @@ extends Node
 var Items = load("res://inventory/Items.gd")
 
 var playerCollectedItems = []
+var inventory_ui
 
 func _ready():
-	pass
+	inventory_ui = get_tree().get_root().get_node("Main/Player/Inventory")
 
 func add_item_by_name(item_name):
 	var shouldCreateItem = false
@@ -16,6 +17,7 @@ func add_item_by_name(item_name):
 	else:
 		print("Player didn't have this item")
 		_createItemEntryByName(item_name)
+		
 
 func player_has_item_by_name(item_name):
 	for item in playerCollectedItems:
@@ -36,7 +38,7 @@ func _createItemEntryByName(itemName):
 
 func remove_item_by_name(item_name):
 	for item in playerCollectedItems:
-		if (item.name == item_name):
+		if (item.name == item_name && item.quantity > 0):
 			item.quantity -= 1
 
 func print_collected_items():
