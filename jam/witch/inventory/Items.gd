@@ -4,6 +4,7 @@ const Acorn = preload("res://items/Acorn/Acorn.gd")
 const Elderberry = preload("res://items/Elderberry/Elderberry.gd")
 const Leaf = preload("res://items/Leaf/Leaf.gd")
 const Mushroom = preload("res://items/Mushroom/Mushroom.gd")
+const Feather = preload("res://items/Feather/Feather.gd")
 
 const PotionOfMinorStomachAches = preload("res://items/PotionOfMinorStomachAches/PotionOfMinorStomachAches.gd")
 const CrunchyNaturePotion = preload("res://items/CrunchyNaturePotion/CrunchyNaturePotion.gd")
@@ -15,6 +16,7 @@ var types = {
 	"Elderberry": load("res://items/Elderberry/Elderberry.gd").new(),
 	"Leaf": load("res://items/Leaf/Leaf.gd").new(),
 	"Mushroom": load("res://items/Mushroom/Mushroom.gd").new(),
+	"Feather": Feather.new(),
 
 	"PotionOfMinorStomachAches": load("res://items/PotionOfMinorStomachAches/PotionOfMinorStomachAches.gd").new(),
 	"CrunchyNaturePotion": load("res://items/CrunchyNaturePotion/CrunchyNaturePotion.gd").new(),
@@ -27,6 +29,7 @@ static func getNamedItemTypes():
 		"Elderberry": Elderberry,
 		"Leaf": Leaf,
 		"Mushroom": Mushroom,
+		"Feather": Feather,
 
 		"Potion of Minor Stomach Aches": PotionOfMinorStomachAches,
 		"Crunchy Nature Potion": CrunchyNaturePotion,
@@ -34,7 +37,7 @@ static func getNamedItemTypes():
 	}
 
 static func getItemTypes():
-	return [Acorn, Elderberry, Leaf, Mushroom,
+	return [Acorn, Elderberry, Leaf, Mushroom, Feather,
 		PotionOfMinorStomachAches, CrunchyNaturePotion, TastyHealthPotion]
 
 static func getInstanceOfItemByItemName(itemName):
