@@ -29,7 +29,7 @@ func interact():
 
 			carried.set_current_item(null)
 			carried.set_visibility(false)
-			
+
 			try_create_recipe()
 	else:
 		if items.size() > 0:
@@ -46,7 +46,7 @@ func interactable_area_exited():
 	for child in GridContainer.get_children():
 		child.free()
 	ColorRect.visible = false
-	
+
 func refresh_item_display():
 	for child in GridContainer.get_children():
 		child.free()
@@ -54,10 +54,10 @@ func refresh_item_display():
 		var image = TextureRect.new()
 		image.set_texture(item.texture)
 		GridContainer.add_child(image)
-		
+
 func try_create_recipe():
 	var item_ids = get_item_ids()
-	
+
 	var potion
 	if has_ingredients([1, 3]):
 		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches")
@@ -68,11 +68,11 @@ func try_create_recipe():
 	elif has_ingredients([50, 51]):
 		potion = Items.getInstanceOfItemByItemName("Tasty Health Potion")
 		remove_ingredients([50, 51])
-	
+
 	if potion:
 		items.append(potion)
 		refresh_item_display()
-		
+
 func get_item_ids():
 	var item_ids = []
 	for item in items:
@@ -85,7 +85,7 @@ func has_ingredients(ingredient_ids):
 		if not item_ids.has(ingredient_id):
 			return false
 	return true
-		
+
 func remove_single_item_by_id(item_id):
 	var i = 0
 	for item in items:
@@ -93,7 +93,7 @@ func remove_single_item_by_id(item_id):
 			items.remove(i)
 		i += 1
 	print(str(items))
-	
+
 func remove_ingredients(ingredient_ids):
 	for ingredient_id in ingredient_ids:
 		remove_single_item_by_id(ingredient_id)

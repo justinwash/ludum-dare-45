@@ -29,7 +29,7 @@ func refresh_items():
 		var item_inst = Items.getInstanceOfItemByItemName(item.name)
 		item_list.add_item(item_inst.item_name, item_inst.texture)
 		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
-	
+
 	money_label.text = "Money: " + str(player.get_money())
 
 func _physics_process(delta):
@@ -47,4 +47,4 @@ func _on_ItemList_item_activated(index):
 		carried.set_current_item(item.name)
 		carried.set_visibility(true)
 		self.visible = false
-		
+

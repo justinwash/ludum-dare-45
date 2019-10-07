@@ -45,9 +45,9 @@ func _on_DialogTrigger_area_exited(area):
 		dialog_ref.visible = false
 	elif (interacting_with.is_in_group("Interactable")):
 		interacting_with.interactable_area_exited()
-		
+
 func add_money(amount):
 	money += amount
-	
+
 func get_money():
 	return money
