@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -11,12 +11,13 @@
 [ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=9]
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=10]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=12]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=13]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=15]
-[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=16]
-[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=17]
+[ext_resource path="res://items/Feather/Feather.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=16]
+[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -336,16 +337,19 @@ position = Vector2( 146.471, 125.769 )
 ] instance=ExtResource( 11 )]
 position = Vector2( 148.588, 89.6512 )
 
+[node name="Feather" parent="Items" instance=ExtResource( 12 )]
+position = Vector2( 112.58, -134.354 )
+
 [node name="NPC" parent="." groups=[
 "Dialog",
-] instance=ExtResource( 12 )]
+] instance=ExtResource( 13 )]
 position = Vector2( -150.283, -53.788 )
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 13 )]
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 scale = Vector2( 1, 1 )
@@ -353,13 +357,13 @@ scale = Vector2( 1, 1 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Cauldron" parent="." instance=ExtResource( 14 )]
+[node name="Cauldron" parent="." instance=ExtResource( 15 )]
 position = Vector2( 275.046, 66.4071 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
 position = Vector2( 260.113, -40.4956 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="Area2D" type="Area2D" parent="Cutie_lil_witch_cabin"]
 
@@ -367,7 +371,7 @@ texture = ExtResource( 15 )
 position = Vector2( 1.2605, 0 )
 shape = SubResource( 6 )
 
-[node name="Market" parent="." instance=ExtResource( 16 )]
+[node name="Market" parent="." instance=ExtResource( 17 )]
 position = Vector2( 214.923, 144.281 )
 scale = Vector2( 0.5, 0.5 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
@@ -375,7 +379,7 @@ dialog_sequence = [ "Hey there. My name's Petunia.", "Did you know you can find 
 
 [node name="Toad" parent="." groups=[
 "Dialog",
-] instance=ExtResource( 17 )]
+] instance=ExtResource( 18 )]
 position = Vector2( 120.951, -26.2561 )
 
 [editable path="Market"]

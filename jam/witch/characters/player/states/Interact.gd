@@ -24,7 +24,7 @@ func enter():
 	
 	var carriedItem = player.get_node("CarriedItem").get("current_item")
 	if (carriedItem && carriedItem.get("id")):
-		if (carriedItem.id > 49 && carriedItem.id < 60):
+		if (carriedItem.id > 49 && carriedItem.id < 70):
 			consumePotion(carriedItem)
 
 

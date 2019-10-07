@@ -3,9 +3,6 @@
 [ext_resource path="res://items/Mushroom/Mushroom.gd" type="Script" id=1]
 [ext_resource path="res://items/GreaterPotionOfMinorNarcolepsy/GreaterPotionOfMinorNarcolepsy.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.72777, 0.985176 )
 

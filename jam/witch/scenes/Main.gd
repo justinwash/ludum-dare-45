@@ -3,6 +3,7 @@ const Leaf = preload("../items/Leaf/Leaf.tscn")
 const Mushroom = preload("../items/Mushroom/Mushroom.tscn")
 const Acorn = preload("../items/Acorn/Acorn.tscn")
 const Elderberry = preload("../items/Elderberry/Elderberry.tscn")
+const Feather = preload("../items/Feather/Feather.tscn")
 const MAX_ITEMS_PLACED = 50
 const X_MAX = 1000
 const Y_MAX = 1000
@@ -53,7 +54,7 @@ func getBiasedVector(vector):
 	return Vector2(xPos, yPos)
 
 func getRandomItem():
-	var items = [Leaf, Mushroom, Acorn, Elderberry]
+	var items = [Leaf, Mushroom, Acorn, Elderberry, Feather]
 	var index = (randi()%items.size()+1)-1
 	var item = items[index]
 	return item.instance()
