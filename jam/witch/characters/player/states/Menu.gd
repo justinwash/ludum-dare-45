@@ -22,6 +22,7 @@ func enter():
 		instance = invtest.instance()
 		canvas.add_child(instance)
 		print("created menu instance")
+		instance.visible = false
 
 	print("Menu")
 	instance.visible = !instance.visible
