@@ -7,5 +7,5 @@ func _init():
 	item_name = "Leaf"
 	quantity = 0
 	price = 1
-	description = "Its... a leaf"
+	description = "It's... a leaf."
 	texture = tex
