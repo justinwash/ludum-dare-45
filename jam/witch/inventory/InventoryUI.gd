@@ -42,3 +42,5 @@ func _on_ItemList_item_activated(index):
 		var carried = player.get_node("CarriedItem")
 		carried.set_current_item(item.name)
 		carried.set_visibility(true)
+		self.visible = false
+		

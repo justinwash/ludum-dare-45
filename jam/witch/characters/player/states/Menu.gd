@@ -26,6 +26,7 @@ func enter():
 	print("Menu")
 	instance.visible = true
 	instance.refresh_items()
+	emit_signal("change_state", "idle")
 
 
 
