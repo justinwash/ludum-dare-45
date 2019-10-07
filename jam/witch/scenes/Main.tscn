@@ -337,8 +337,8 @@ scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="DialogBox" parent="DialogLayer" instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 260, 40.9189 )
+scale = Vector2( 1, 1 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
@@ -350,8 +350,12 @@ scale = Vector2( 0.25, 0.25 )
 [node name="Market" parent="." instance=ExtResource( 7 )]
 position = Vector2( 214.923, 144.281 )
 scale = Vector2( 0.5, 0.5 )
+DIALOG_REF = NodePath("../DialogLayer/DialogBox")
+dialog_sequence = [ "Hey there! My name's Petunia.", "Did you know you can combine potions with each other?", "I'll buy any items or potions you find.", "That's a nice %s! I'd pay your $%s for it." ]
 
-[node name="Toad" parent="." instance=ExtResource( 8 )]
+[node name="Toad" parent="." groups=[
+"Dialog",
+] instance=ExtResource( 8 )]
 position = Vector2( 178.397, 936.815 )
 
 [node name="New_House" type="Sprite" parent="."]
@@ -380,6 +384,7 @@ limit_bottom = 1944
 editor_draw_limits = true
 
 [node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 260.113, -40.4956 )
 texture = ExtResource( 11 )
 
@@ -390,6 +395,7 @@ position = Vector2( -0.725584, 11.1221 )
 shape = SubResource( 18 )
 
 [node name="Trees" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, 2.28882e-005 )
 
 [node name="Tree" parent="Trees" instance=ExtResource( 12 )]
@@ -570,6 +576,7 @@ position = Vector2( 506.346, -403.864 )
 position = Vector2( 543.358, -255.813 )
 
 [node name="Items" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1.52588e-005, 0 )
 
 [node name="Mushroom" parent="Items" groups=[
