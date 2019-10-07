@@ -56,17 +56,35 @@ func refresh_item_display():
 		GridContainer.add_child(image)
 		
 func try_create_recipe():
+	var item_ids = get_item_ids()
+	
+	var potion
+	if has_ingredients([1, 3]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches")
+		remove_ingredients([1,3])
+	elif has_ingredients([0, 2]):
+		potion = Items.getInstanceOfItemByItemName("Crunchy Nature Potion")
+		remove_ingredients([0, 2])
+	elif has_ingredients([50, 51]):
+		potion = Items.getInstanceOfItemByItemName("Tasty Health Potion")
+		remove_ingredients([50, 51])
+	
+	if potion:
+		items.append(potion)
+		refresh_item_display()
+		
+func get_item_ids():
 	var item_ids = []
 	for item in items:
 		item_ids.append(item.id)
-	
-	var potion
-	if item_ids.has(1) and item_ids.has(3):
-		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches")
-		remove_single_item_by_id(1)
-		remove_single_item_by_id(3)
-		items.append(potion)
-		refresh_item_display()
+	return item_ids
+
+func has_ingredients(ingredient_ids):
+	var item_ids = get_item_ids()
+	for ingredient_id in ingredient_ids:
+		if not item_ids.has(ingredient_id):
+			return false
+	return true
 		
 func remove_single_item_by_id(item_id):
 	var i = 0
@@ -75,3 +93,7 @@ func remove_single_item_by_id(item_id):
 			items.remove(i)
 		i += 1
 	print(str(items))
+	
+func remove_ingredients(ingredient_ids):
+	for ingredient_id in ingredient_ids:
+		remove_single_item_by_id(ingredient_id)

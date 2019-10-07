@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=10]
+[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "swamp-tileset.png 0"
@@ -270,3 +271,9 @@ texture = ExtResource( 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
 position = Vector2( 1.2605, 0 )
 shape = SubResource( 2 )
+
+[node name="Market" parent="." groups=[
+"Interactable",
+] instance=ExtResource( 11 )]
+position = Vector2( 80.8052, -28.7555 )
+scale = Vector2( 0.5, 0.5 )

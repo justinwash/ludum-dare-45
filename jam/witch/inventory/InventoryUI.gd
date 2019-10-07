@@ -5,6 +5,8 @@ onready var Items = preload("res://inventory/Items.gd")
 var item_list
 var quantity_list
 
+var money_label
+
 var player
 var inventory
 
@@ -15,6 +17,7 @@ func _ready():
 	inventory = get_node("../../Player/Inventory")
 	item_list = get_node("ItemList")
 	quantity_list = $QuantityList
+	money_label = get_node("MoneyPanel/MoneyLabel")
 	print("Inventory Test Ready")
 
 
@@ -26,7 +29,8 @@ func refresh_items():
 		var item_inst = Items.getInstanceOfItemByItemName(item.name)
 		item_list.add_item(item_inst.item_name, item_inst.texture)
 		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
-
+	
+	money_label.text = "Money: " + str(player.get_money())
 
 func _physics_process(delta):
 	var new_selected = item_list.get_selected_items()
