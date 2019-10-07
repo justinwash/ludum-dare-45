@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=14]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=15]
 [ext_resource path="res://music/witch_explore-field-track.wav" type="AudioStream" id=16]
-[ext_resource path="res://music/AudioStreamPlayer.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -648,4 +647,3 @@ position = Vector2( -25.0976, 298.074 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 autoplay = true
-script = ExtResource( 17 )
