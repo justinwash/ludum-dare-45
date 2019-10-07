@@ -6,6 +6,7 @@ var item_list
 var quantity_list
 
 var money_label
+var potion_label
 
 var player
 var inventory
@@ -18,6 +19,7 @@ func _ready():
 	item_list = get_node("ItemList")
 	quantity_list = $QuantityList
 	money_label = get_node("MoneyPanel/MoneyLabel")
+	potion_label = get_node("MoneyPanel/PotionLabel")
 	print("Inventory Test Ready")
 
 
@@ -31,6 +33,8 @@ func refresh_items():
 		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
 
 	money_label.text = "Money: " + str(player.get_money())
+	potion_label.text = "Potions Unlocked: %s/13" % str(player.potions_unlocked)
+	
 
 func _physics_process(delta):
 	var new_selected = item_list.get_selected_items()
