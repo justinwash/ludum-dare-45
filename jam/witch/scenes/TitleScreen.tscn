@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tiles/Tree.png" type="Texture" id=1]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/Button.gd" type="Script" id=5]
 [ext_resource path="res://ui/PICO-8 mono.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://music/witch_main-track.wav" type="AudioStream" id=7]
+[ext_resource path="res://music/AudioStreamPlayer.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -90,4 +91,5 @@ text = "wicked wanderings"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+script = ExtResource( 8 )
 [connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_Button_button_up"]
