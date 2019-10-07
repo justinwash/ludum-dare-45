@@ -3,7 +3,7 @@ extends "res://inventory/Item.gd"
 var tex = preload("res://items/Mushroom/Mushroom.png")
 
 func _init():
-	id = 0
+	id = 3
 	item_name = "Mushroom"
 	quantity = 0
 	price = 5

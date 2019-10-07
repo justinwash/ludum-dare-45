@@ -7,12 +7,15 @@ var move_dir = {
 	'y': 0
 }
 
+var money
+
 export(NodePath) var DIALOG_REF
 var dialog_ref
 var interacting_with
 
 func _ready():
 	dialog_ref = get_node(DIALOG_REF)
+	money = 0
 
 func _physics_process(delta):
 	if dialog_ref.visible:
@@ -42,3 +45,9 @@ func _on_DialogTrigger_area_exited(area):
 		dialog_ref.visible = false
 	elif (interacting_with.is_in_group("Interactable")):
 		interacting_with.interactable_area_exited()
+		
+func add_money(amount):
+	money += amount
+	
+func get_money():
+	return money
