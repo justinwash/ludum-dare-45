@@ -11,12 +11,12 @@
 [ext_resource path="res://tiles/Stream_tile - Copy.png" type="Texture" id=9]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=10]
 [ext_resource path="res://tiles/Stream_tile_animation_1.png" type="Texture" id=11]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=12]
-[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=13]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=14]
-[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=15]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=16]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=15]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=16]
+[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -281,7 +281,7 @@ tile_data = PoolIntArray( -720894, 0, 0, -720893, 0, 0, -589833, 0, 0, -589826, 
 
 [node name="Player" parent="." groups=[
 "Player",
-] instance=ExtResource( 17 )]
+] instance=ExtResource( 14 )]
 position = Vector2( 87.6674, -27.9302 )
 DIALOG_REF = NodePath("../DialogLayer/DialogBox")
 
@@ -336,21 +336,24 @@ position = Vector2( 146.471, 125.769 )
 ] instance=ExtResource( 6 )]
 position = Vector2( 148.588, 89.6512 )
 
-[node name="NPC" parent="." instance=ExtResource( 16 )]
+[node name="Petunia" parent="." instance=ExtResource( 13 )]
+position = Vector2( -150.283, -53.788 )
+
+[node name="Petunia2" parent="." instance=ExtResource( 13 )]
 position = Vector2( -150.283, -53.788 )
 
 [node name="DialogLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 14 )]
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 260, 40.9189 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Cauldron" parent="." instance=ExtResource( 12 )]
+[node name="Cauldron" parent="." instance=ExtResource( 16 )]
 position = Vector2( 275.046, 66.4071 )
 scale = Vector2( 0.25, 0.25 )
 
@@ -364,9 +367,9 @@ texture = ExtResource( 10 )
 position = Vector2( 1.2605, 0 )
 shape = SubResource( 6 )
 
-[node name="Market" parent="." instance=ExtResource( 15 )]
+[node name="Market" parent="." instance=ExtResource( 17 )]
 position = Vector2( 214.923, 144.281 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Toad" parent="." instance=ExtResource( 13 )]
+[node name="Toad" parent="." instance=ExtResource( 12 )]
 position = Vector2( 120.951, -26.2561 )
