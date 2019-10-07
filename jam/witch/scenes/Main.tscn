@@ -346,6 +346,7 @@ scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="DialogBox" parent="DialogLayer" instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 260, 40.9189 )
 scale = Vector2( 1, 1 )
 

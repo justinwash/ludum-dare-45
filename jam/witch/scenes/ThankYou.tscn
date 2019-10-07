@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tiles/Tree.png" type="Texture" id=1]
+[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=2]
+[ext_resource path="res://ui/title_sprite.png" type="Texture" id=3]
+[ext_resource path="res://tiles/New_House.png" type="Texture" id=4]
+[ext_resource path="res://ui/QuitButton.gd" type="Script" id=5]
+[ext_resource path="res://ui/PICO-8 mono.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 43
+outline_size = 2
+outline_color = Color( 0.87451, 0.631373, 0.121569, 1 )
+font_data = ExtResource( 6 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -11.1068
+margin_right = -11.1068
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -17.2793
+margin_top = 493.198
+margin_right = 1053.72
+margin_bottom = 621.198
+rect_pivot_offset = Vector2( 535.5, 0 )
+color = Color( 0.176471, 0.305882, 0.184314, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 1058.0
+margin_bottom = 387.0
+rect_pivot_offset = Vector2( 535.5, 0 )
+color = Color( 0.305882, 0.705882, 0.843137, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -13.0
+margin_top = -32.0
+margin_right = 1058.0
+margin_bottom = 505.0
+rect_pivot_offset = Vector2( 535.5, 0 )
+color = Color( 0.247059, 0.380392, 0.254902, 1 )
+
+[node name="Tree2" type="Sprite" parent="."]
+position = Vector2( 705.943, 142.052 )
+scale = Vector2( 6.06955, 6.06955 )
+texture = ExtResource( 1 )
+offset = Vector2( 1.4783, -7.87066 )
+
+[node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
+position = Vector2( 921.014, 160.259 )
+scale = Vector2( 6.83477, 6.83477 )
+texture = ExtResource( 2 )
+
+[node name="Tree" type="Sprite" parent="."]
+position = Vector2( 394.415, 238.64 )
+scale = Vector2( 6.06955, 6.06955 )
+texture = ExtResource( 1 )
+offset = Vector2( 1.4783, -7.87066 )
+
+[node name="title_sprite" type="Sprite" parent="."]
+position = Vector2( 541.242, 219.663 )
+scale = Vector2( 1.89275, 1.89275 )
+texture = ExtResource( 3 )
+
+[node name="New_House" type="Sprite" parent="."]
+position = Vector2( 161.92, 114.007 )
+scale = Vector2( 6.06955, 6.06955 )
+texture = ExtResource( 4 )
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 468.15
+margin_top = 543.692
+margin_right = 616.15
+margin_bottom = 584.693
+text = "Quit"
+script = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 132.187
+margin_top = 460.827
+margin_right = 952.187
+margin_bottom = 534.827
+custom_fonts/normal_font = SubResource( 1 )
+text = "thanks for playing!"
+[connection signal="button_up" from="QuitButton" to="QuitButton" method="_on_QuitButton_button_up"]
