@@ -1,24 +1,275 @@
-[gd_scene load_steps=17 format=2]
+
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
-[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=6]
-[ext_resource path="res://maps/NewMap.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=9]
-[ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=11]
-[ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=12]
-[ext_resource path="res://tiles/New_House.png" type="Texture" id=14]
+[ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
+[ext_resource path="res://tiles/Stream_tile.png" type="Texture" id=3]
+[ext_resource path="res://tiles/Stream_tile_animation_1.png" type="Texture" id=4]
+[ext_resource path="res://tiles/Stream_tile_animation_2.png" type="Texture" id=5]
+[ext_resource path="res://tiles/Stream_tile_animation_10.png" type="Texture" id=6]
+[ext_resource path="res://tiles/Stream_tile - Copy.png" type="Texture" id=7]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=9]
+[ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/Feather/Feather.tscn" type="PackedScene" id=12]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=15]
 [ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=16]
+[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=18]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29.8973, 24.7193 )
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "swamp-tileset.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "swamp-tileset.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "swamp-tileset.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 16, 16, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
+3/name = "swamp-tileset.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 32, 16, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shapes = [  ]
+3/z_index = 0
+4/name = "swamp-tileset.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 48, 16, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shapes = [  ]
+4/z_index = 0
+5/name = "swamp-tileset.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 80, 16, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shapes = [  ]
+5/z_index = 0
+6/name = "swamp-tileset.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 96, 16, 16, 16 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shapes = [  ]
+6/z_index = 0
+7/name = "swamp-tileset.png 7"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 32, 16, 16 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shapes = [  ]
+7/z_index = 0
+8/name = "swamp-tileset.png 8"
+8/texture = ExtResource( 2 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 16, 32, 16, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shapes = [  ]
+8/z_index = 0
+9/name = "swamp-tileset.png 9"
+9/texture = ExtResource( 2 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 32, 32, 16, 16 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shapes = [  ]
+9/z_index = 0
+10/name = "swamp-tileset.png 10"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 48, 32, 16, 16 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shapes = [  ]
+10/z_index = 0
+11/name = "swamp-tileset.png 11"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 64, 32, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shapes = [  ]
+11/z_index = 0
+12/name = "swamp-tileset.png 12"
+12/texture = ExtResource( 2 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 16, 48, 16, 16 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shapes = [  ]
+12/z_index = 0
+13/name = "swamp-tileset.png 13"
+13/texture = ExtResource( 2 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 32, 48, 16, 16 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shapes = [  ]
+13/z_index = 0
+14/name = "swamp-tileset.png 14"
+14/texture = ExtResource( 2 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 48, 48, 16, 16 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shapes = [  ]
+14/z_index = 0
+15/name = "swamp-tileset.png 15"
+15/texture = ExtResource( 2 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 32, 64, 16, 16 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shapes = [  ]
+15/z_index = 0
+16/name = "Stream_tile.png 16"
+16/texture = ExtResource( 3 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 32, 32 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+16/z_index = 0
+17/name = "Stream_tile_animation_1.png 17"
+17/texture = ExtResource( 4 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 32, 32 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+17/z_index = 0
+18/name = "Stream_tile_animation_2.png 18"
+18/texture = ExtResource( 5 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 0, 32, 32 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+18/z_index = 0
+19/name = "Stream_tile_animation_10.png 19"
+19/texture = ExtResource( 6 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 0, 0, 32, 32 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shapes = [  ]
+19/z_index = 0
+20/name = "Stream_tile - Copy.png 20"
+20/texture = ExtResource( 7 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 0, 32, 32 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+20/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=6]
+
 extents = Vector2( 27.7312, 29.622 )
 
 [node name="Main" type="Node2D"]
@@ -292,6 +543,75 @@ position = Vector2( -102.367, 261.523 )
 
 [node name="Mushroom5" parent="Items" groups=[
 "Item",
+] instance=ExtResource( 9 )]
+position = Vector2( -289.275, 143.205 )
+
+[node name="Acorn" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 10 )]
+position = Vector2( -100.283, 136.212 )
+
+[node name="Leaf2" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 11 )]
+position = Vector2( 146.574, 61.3465 )
+
+[node name="Leaf" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 11 )]
+position = Vector2( 146.471, 125.769 )
+
+[node name="Leaf3" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 11 )]
+position = Vector2( 148.588, 89.6512 )
+
+[node name="Feather" parent="Items" instance=ExtResource( 12 )]
+position = Vector2( 112.58, -134.354 )
+
+[node name="NPC" parent="." groups=[
+"Dialog",
+] instance=ExtResource( 13 )]
+position = Vector2( -150.283, -53.788 )
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 260, 40.9189 )
+scale = Vector2( 1, 1 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Cauldron" parent="." instance=ExtResource( 15 )]
+position = Vector2( 275.046, 66.4071 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
+position = Vector2( 260.113, -40.4956 )
+texture = ExtResource( 16 )
+
+[node name="Area2D" type="Area2D" parent="Cutie_lil_witch_cabin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
+position = Vector2( 1.2605, 0 )
+shape = SubResource( 6 )
+
+[node name="Market" parent="." instance=ExtResource( 17 )]
+position = Vector2( 214.923, 144.281 )
+scale = Vector2( 0.5, 0.5 )
+DIALOG_REF = NodePath("../DialogLayer/DialogBox")
+dialog_sequence = [ "Hey there. My name's Petunia.", "Did you know you can find elderberries to the East?", "I'd also be interested in purchasing any items you might find.", "Wow! That's a nice %s you've got there. I'd give you $%s for it!" ]
+
+[node name="Toad" parent="." groups=[
+"Dialog",
+] instance=ExtResource( 18 )]
+position = Vector2( 120.951, -26.2561 )
+
+[editable path="Market"]
 ] instance=ExtResource( 10 )]
 position = Vector2( -186.116, 218.995 )
 

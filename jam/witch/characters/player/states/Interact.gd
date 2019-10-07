@@ -21,9 +21,24 @@ func enter():
 		if object_to_interact:
 			print("interacting with " + str(object_to_interact.name))
 			object_to_interact.interact()
+	
+	var carriedItem = player.get_node("CarriedItem").get("current_item")
+	if (carriedItem && carriedItem.get("id")):
+		if (carriedItem.id > 49 && carriedItem.id < 70):
+			consumePotion(carriedItem)
 
 
 	#var distance2Hero = enemy.get_global_pos().distance_to(hero.get_global_pos()); if(distance2Hero<100): enemy.throwBulletAt(hero);
+func consumePotion(potion):
+	#run potion code
+	potion.consume()
+	
+	#remove potion from inventory
+	inventory.remove_item_by_name(potion.item_name)
+
+	#remove potion from carried
+	player.get_node("CarriedItem").set_current_item(null)
+	player.get_node("CarriedItem").set_visibility(false)
 
 func update():
 	if Updates.check_grab():

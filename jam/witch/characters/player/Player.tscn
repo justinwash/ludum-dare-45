@@ -12,21 +12,21 @@
 [ext_resource path="res://characters/player/sprites/walkleft1.png" type="Texture" id=10]
 [ext_resource path="res://characters/player/sprites/walkleft2.png" type="Texture" id=11]
 [ext_resource path="res://characters/player/sprites/walkleft3.png" type="Texture" id=12]
-[ext_resource path="res://characters/player/sprites/walkdown0.png" type="Texture" id=13]
-[ext_resource path="res://characters/player/sprites/walkdown1.png" type="Texture" id=14]
-[ext_resource path="res://characters/player/sprites/walkdown2.png" type="Texture" id=15]
-[ext_resource path="res://characters/player/sprites/walkdown3.png" type="Texture" id=16]
-[ext_resource path="res://characters/player/sprites/walkup0.png" type="Texture" id=17]
-[ext_resource path="res://characters/player/sprites/walkup1.png" type="Texture" id=18]
-[ext_resource path="res://characters/player/sprites/walkup2.png" type="Texture" id=19]
-[ext_resource path="res://characters/player/sprites/walkup3.png" type="Texture" id=20]
-[ext_resource path="res://characters/player/sprites/walkright0.png" type="Texture" id=21]
-[ext_resource path="res://characters/player/sprites/walkright1.png" type="Texture" id=22]
-[ext_resource path="res://characters/player/sprites/walkright2.png" type="Texture" id=23]
-[ext_resource path="res://characters/player/sprites/walkright3.png" type="Texture" id=24]
-[ext_resource path="res://characters/player/sprites/idle0.png" type="Texture" id=25]
-[ext_resource path="res://characters/player/sprites/idle1.png" type="Texture" id=26]
-[ext_resource path="res://characters/player/sprites/idle3.png" type="Texture" id=27]
+[ext_resource path="res://characters/player/sprites/walkright0.png" type="Texture" id=13]
+[ext_resource path="res://characters/player/sprites/walkright1.png" type="Texture" id=14]
+[ext_resource path="res://characters/player/sprites/walkright2.png" type="Texture" id=15]
+[ext_resource path="res://characters/player/sprites/walkright3.png" type="Texture" id=16]
+[ext_resource path="res://characters/player/sprites/walkdown0.png" type="Texture" id=17]
+[ext_resource path="res://characters/player/sprites/walkdown1.png" type="Texture" id=18]
+[ext_resource path="res://characters/player/sprites/walkdown2.png" type="Texture" id=19]
+[ext_resource path="res://characters/player/sprites/walkdown3.png" type="Texture" id=20]
+[ext_resource path="res://characters/player/sprites/walkup0.png" type="Texture" id=21]
+[ext_resource path="res://characters/player/sprites/walkup1.png" type="Texture" id=22]
+[ext_resource path="res://characters/player/sprites/walkup2.png" type="Texture" id=23]
+[ext_resource path="res://characters/player/sprites/walkup3.png" type="Texture" id=24]
+[ext_resource path="res://characters/player/sprites/idle3.png" type="Texture" id=25]
+[ext_resource path="res://characters/player/sprites/idle0.png" type="Texture" id=26]
+[ext_resource path="res://characters/player/sprites/idle1.png" type="Texture" id=27]
 [ext_resource path="res://characters/player/sprites/idle2.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -57,7 +57,7 @@ animations = [ {
 "name": "idleright",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "walkup",
 "speed": 8.0

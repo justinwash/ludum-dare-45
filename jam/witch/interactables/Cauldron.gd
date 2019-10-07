@@ -60,14 +60,44 @@ func try_create_recipe():
 
 	var potion
 	if has_ingredients([1, 3]):
-		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches")
+		potion = Items.getInstanceOfItemByItemName("Potion of Minor Stomach Aches") # 50
 		remove_ingredients([1,3])
 	elif has_ingredients([0, 2]):
-		potion = Items.getInstanceOfItemByItemName("Crunchy Nature Potion")
+		potion = Items.getInstanceOfItemByItemName("Crunchy Nature Potion") # 51
 		remove_ingredients([0, 2])
 	elif has_ingredients([50, 51]):
-		potion = Items.getInstanceOfItemByItemName("Tasty Health Potion")
+		potion = Items.getInstanceOfItemByItemName("Tasty Health Potion") # 52
 		remove_ingredients([50, 51])
+	elif has_ingredients([0, 3, 4]):
+		potion = Items.getInstanceOfItemByItemName("Greater Potion of Minor Narcolepsy") # 53
+		remove_ingredients([0, 3, 4])
+	elif has_ingredients([2, 3, 4]):
+		potion = Items.getInstanceOfItemByItemName("Weak Potion of Greater Energy") # 54
+		remove_ingredients([2, 3, 4])
+	elif has_ingredients([3, 4, 52]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Advanced Revelry") # 55
+		remove_ingredients([3, 4, 52])
+	elif has_ingredients([1, 4, 50]):
+		potion = Items.getInstanceOfItemByItemName("Scaly Potion of Enhanced Nausea") # 56
+		remove_ingredients([1, 4, 50])
+	elif has_ingredients([52, 55]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Toadspeak") # 57
+		remove_ingredients([52, 55])
+	elif has_ingredients([50, 56, 57]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Delusionary Toadform") # 58
+		remove_ingredients([50, 56, 57])
+	elif has_ingredients([54, 56, 58]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Lifelong Anxiety") # 59
+		remove_ingredients([54, 56, 58])
+	elif has_ingredients([53, 59]):
+		potion = Items.getInstanceOfItemByItemName("Nightmare Fuel Concoction") # 60
+		remove_ingredients([53, 59])
+	elif has_ingredients([52, 54, 55]):
+		potion = Items.getInstanceOfItemByItemName("Potion of Neversleep") # 61
+		remove_ingredients([52, 54, 55])
+	elif has_ingredients([61, 62]):
+		potion = Items.getInstanceOfItemByItemName("Psychotic Episode in a Bottle") # 62
+		remove_ingredients([61, 62])
 
 	if potion:
 		items.append(potion)
