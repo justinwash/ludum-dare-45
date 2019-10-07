@@ -25,8 +25,8 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("player_interact") && interacting_with.is_in_group("Dialog"):
 			interacting_with.current_phrase = 0
 			dialog_ref.visible = false
-	if money >= 200:
-		get_tree().change_scene("res://scenes/ThankYou.gd")
+	if money >= 1000 && potions_unlocked >= 13:
+		get_tree().change_scene("res://scenes/ThankYou.tscn")
 
 func _on_DialogTrigger_area_entered(area):
 	interacting_with = area.get_parent()
