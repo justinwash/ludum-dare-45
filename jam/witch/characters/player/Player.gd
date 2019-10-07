@@ -8,6 +8,7 @@ var move_dir = {
 }
 
 var money = 0
+var potions_unlocked = 0
 
 export(NodePath) var DIALOG_REF
 var dialog_ref
