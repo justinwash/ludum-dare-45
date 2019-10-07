@@ -15,7 +15,7 @@ func interact():
 		inventory.remove_item_by_name(item.item_name)
 		player.add_money(item.price)
 		carried.set_current_item(null)
-		
+
 func interactable_area_entered():
 	pass
 
