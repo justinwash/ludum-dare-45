@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=4]
+[ext_resource path="res://tiles/Tree.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=6]
+[ext_resource path="res://maps/Map.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/Dialogs/DialogBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/demo_npc/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=11]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.7312, 29.622 )
+
+[node name="Main" type="Node2D"]
+position = Vector2( 210.283, 103.788 )
+script = ExtResource( 6 )
+
+[node name="TileMap" parent="." instance=ExtResource( 7 )]
+
+[node name="Player" parent="." groups=[
+"Player",
+] instance=ExtResource( 12 )]
+position = Vector2( 196.96, 881.376 )
+DIALOG_REF = NodePath("../DialogLayer/DialogBox")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Items" type="Node2D" parent="."]
+visible = false
+
+[node name="Mushroom" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 1 )]
+position = Vector2( -196.695, 88.2866 )
+
+[node name="Mushroom2" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 1 )]
+position = Vector2( -156.382, 68.6127 )
+
+[node name="Mushroom3" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 1 )]
+position = Vector2( -133.233, 177.5 )
+
+[node name="Mushroom4" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 1 )]
+position = Vector2( -102.367, 261.523 )
+
+[node name="Mushroom5" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 1 )]
+position = Vector2( -289.275, 143.205 )
+
+[node name="Acorn" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( -100.283, 136.212 )
+
+[node name="Leaf2" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 2 )]
+position = Vector2( 146.574, 61.3465 )
+
+[node name="Leaf" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 2 )]
+position = Vector2( 146.471, 125.769 )
+
+[node name="Leaf3" parent="Items" groups=[
+"Item",
+] instance=ExtResource( 2 )]
+position = Vector2( 148.588, 89.6512 )
+
+[node name="NPC" parent="." instance=ExtResource( 9 )]
+position = Vector2( -150.283, -53.788 )
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+
+[node name="DialogBox" parent="DialogLayer" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 260, 40.9189 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Cauldron" parent="." instance=ExtResource( 10 )]
+position = Vector2( 275.046, 66.4071 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
+position = Vector2( 260.113, -40.4956 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="Cutie_lil_witch_cabin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
+position = Vector2( 1.2605, 0 )
+shape = SubResource( 1 )
+
+[node name="Market" parent="." instance=ExtResource( 13 )]
+position = Vector2( 214.923, 144.281 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Toad" parent="." instance=ExtResource( 11 )]
+position = Vector2( 228.962, 882.474 )
+
+[node name="Tree" type="Sprite" parent="Toad"]
+position = Vector2( 103.673, -948.331 )
+texture = ExtResource( 5 )
+
+[node name="Tree" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -243.874, 846.716 )
+texture = ExtResource( 5 )
+
+[node name="Tree2" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -298.7, 883.404 )
+texture = ExtResource( 5 )
+
+[node name="Tree3" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -21.2709, 853.311 )
+texture = ExtResource( 5 )
+
+[node name="Tree4" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -11.3775, 990.583 )
+texture = ExtResource( 5 )
+
+[node name="Tree5" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -288.807, 1012.43 )
+texture = ExtResource( 5 )
+
+[node name="Tree6" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -419.895, 747.781 )
+texture = ExtResource( 5 )
+
+[node name="Tree7" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -297.546, 756.603 )
+texture = ExtResource( 5 )
+
+[node name="Tree8" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -89.7832, 743.659 )
+texture = ExtResource( 5 )
+
+[node name="Tree9" type="Sprite" parent="Toad/Tree"]
+position = Vector2( 223.993, 491.757 )
+texture = ExtResource( 5 )
+
+[node name="Tree" type="Sprite" parent="Toad/Tree/Tree9"]
+position = Vector2( 77.5446, 230.113 )
+texture = ExtResource( 5 )
+
+[node name="Tree2" type="Sprite" parent="Toad/Tree/Tree9"]
+position = Vector2( -10.7129, 449.982 )
+texture = ExtResource( 5 )
+
+[node name="Tree10" type="Sprite" parent="Toad/Tree"]
+position = Vector2( 160.023, 283.163 )
+texture = ExtResource( 5 )
+
+[node name="Tree11" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -488.985, 471.589 )
+texture = ExtResource( 5 )
+
+[node name="Tree12" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -367.377, 560.63 )
+texture = ExtResource( 5 )
+
+[node name="Tree13" type="Sprite" parent="Toad/Tree"]
+position = Vector2( -497.724, 519.819 )
+texture = ExtResource( 5 )
+
+[node name="Tree" type="Sprite" parent="."]
+position = Vector2( 668.959, 1038.67 )
+texture = ExtResource( 5 )
