@@ -90,4 +90,5 @@ text = "wicked wanderings"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+stream_paused = true
 [connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_Button_button_up"]

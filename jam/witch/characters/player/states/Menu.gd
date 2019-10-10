@@ -2,37 +2,28 @@ extends "res://utilities/State.gd"
 const Updates = preload("Updates.gd") # Relative path
 var Items = load("res://inventory/Items.gd")
 
-#onready var InventoryItemTemplate = preload("res://InventoryTest.tscn")
-onready var invtest = preload("res://inventory/Inventory.tscn")
 
 var inventory
 var canvas
 var itemlist
 var player
 
-var instance
+var menu
 
 func enter():
 	.enter()
 
-	canvas = get_node("../../../Canvas")
-
-	# if we don't already have a menu instance we need to create one
-	if not instance:
-		instance = invtest.instance()
-		canvas.add_child(instance)
-		print("created menu instance")
-		instance.visible = false
+	menu = get_tree().get_root().get_node("Main/Canvas/InventoryUI")
 
 	print("Menu")
-	instance.visible = !instance.visible
-	instance.refresh_items()
+	menu.visible = !menu.visible
+	menu.refresh_items()
 	emit_signal("change_state", "idle")
 
 
 
 func update():
 	if Updates.check_menu():
-		instance.visible = false
+		menu.visible = false
 		emit_signal("change_state", "idle")
 

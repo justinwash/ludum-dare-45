@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/feather-ui.png-ee66bff85930bb0165793b905b17a3bb.stex"
+path="res://.import/Feather_too_big.png-32321ab2d3e2f2d27ddb52a957e911fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/Feather/feather-ui.png"
-dest_files=[ "res://.import/feather-ui.png-ee66bff85930bb0165793b905b17a3bb.stex" ]
+source_file="res://items/Feather/Feather_too_big.png"
+dest_files=[ "res://.import/Feather_too_big.png-32321ab2d3e2f2d27ddb52a957e911fe.stex" ]
 
 [params]
 

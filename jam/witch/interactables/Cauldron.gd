@@ -7,7 +7,7 @@ var unlocks = [false, false, false, false, false, false, false, false, false, fa
 
 var player
 var inventory
-
+var inventory_ui
 
 var GridContainer
 var ColorRect
@@ -16,6 +16,7 @@ var ColorRect
 func _ready():
 	player = get_tree().get_root().get_node("Main/Player")
 	inventory = player.get_node("Inventory")
+	inventory_ui = get_tree().get_root().get_node("Main/Canvas/InventoryUI")
 	GridContainer = get_node("ColorRect/GridContainer")
 	ColorRect = get_node("ColorRect")
 
@@ -38,15 +39,28 @@ func interact():
 			items.remove(items.size()-1)
 			inventory.add_item_by_name(removed_item.item_name)
 			refresh_item_display()
+			inventory_ui.refresh_items()
+			
+func interact_with_item(item):
+		if not items.has(item):
+			items.append(item)
+			inventory.remove_item_by_name(item.item_name)
+
+			refresh_item_display()
+			try_create_recipe()
 
 func interactable_area_entered():
 	refresh_item_display()
 	ColorRect.visible = true
+	
+	inventory_ui.set_all_button_text("Mix")
 
 func interactable_area_exited():
 	for child in GridContainer.get_children():
 		child.free()
 	ColorRect.visible = false
+	
+	inventory_ui.set_all_button_text("Carry")
 
 func refresh_item_display():
 	for child in GridContainer.get_children():

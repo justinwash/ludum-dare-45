@@ -59,11 +59,21 @@ func getNearestItem():
 	return null
 
 func getNearestInteractable():
-	var items = get_tree().get_nodes_in_group("Interactable")
-	for item in items:
-		var distanceToActor = item.position.distance_to(actor.position)
-
+	var interactables = get_tree().get_nodes_in_group("Interactable")
+	var distances = []
+	for interactable in interactables:
+		var distanceToActor = interactable.position.distance_to(actor.position)
+	
 		if(distanceToActor < 50):
-			print(distanceToActor)
-			return item;
+			distances.append({"interactable":interactable, "distance":distanceToActor})
+	
+	if distances.size() > 0:
+		var minDistance = 1000
+		var interactable
+		for pair in distances:
+			if pair.distance < minDistance:
+				interactable = pair.interactable
+				minDistance = pair.distance
+		return interactable
+		
 	return null
