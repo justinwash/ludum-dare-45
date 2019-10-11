@@ -9,7 +9,7 @@ var move_dir = {
 	'y': 0
 }
 
-var money = 0
+var money = 0 setget set_money,get_money
 var potions_unlocked = 0
 
 export(NodePath) var DIALOG_REF
@@ -21,7 +21,7 @@ func _ready():
 
 func _physics_process(delta):
 	if dialog_ref.visible && is_instance_valid(interacting_with) && interacting_with.is_in_group("Dialog"):
-		if Input.is_action_just_pressed("player_interact")  && len(interacting_with.dialog_sequence) > interacting_with.current_phrase + 1:
+		if Input.is_action_just_pressed("player_interact") && len(interacting_with.dialog_sequence) > interacting_with.current_phrase + 1:
 			interacting_with.current_phrase += 1
 			dialog_ref.text_box.set_text(interacting_with.dialog_sequence[interacting_with.current_phrase])
 		elif Input.is_action_just_pressed("player_interact") && interacting_with.is_in_group("Dialog"):
@@ -50,8 +50,9 @@ func _on_DialogTrigger_area_exited(area):
 	elif (interacting_with.is_in_group("Interactable")):
 		interacting_with.interactable_area_exited()
 
-func add_money(amount):
-	money += amount
+func set_money(amount):
+	money = amount
+	print("set_money ran - money: %d" % money)
 
 func get_money():
 	return money

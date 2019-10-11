@@ -40,7 +40,7 @@ func interact():
 	if carried.get("current_item"):
 		var item = carried.current_item
 		inventory.remove_item_by_name(item.item_name)
-		player.add_money(item.price)
+		player.money += item.price
 		carried.set_current_item(null)
 		dialog_ref.text_box.set_text("Thanks!")
 
