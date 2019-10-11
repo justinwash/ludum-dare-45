@@ -1,5 +1,7 @@
 extends Sprite
 
+class_name CarriedItem
+
 onready var Items = preload("res://inventory/Items.gd")
 
 var current_item

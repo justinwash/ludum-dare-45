@@ -1,5 +1,7 @@
 extends "res://inventory/Item.gd"
 
+class_name Elderberry
+
 var tex = preload("res://items/Elderberry/Elderberry.png")
 
 func _init():

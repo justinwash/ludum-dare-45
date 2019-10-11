@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Market
+
 export(NodePath) var DIALOG_REF
 
 var player

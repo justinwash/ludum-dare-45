@@ -1,5 +1,7 @@
 extends Node
 
+class_name Inventory
+
 var Items = load("res://inventory/Items.gd")
 
 var playerCollectedItems = []

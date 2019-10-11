@@ -1,4 +1,7 @@
 extends "res://utilities/State.gd"
+
+class_name Interact
+
 const Updates = preload("Updates.gd") # Relative path
 
 var inventory

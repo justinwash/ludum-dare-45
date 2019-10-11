@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Item
+
 var id
 var item_name
 var quantity

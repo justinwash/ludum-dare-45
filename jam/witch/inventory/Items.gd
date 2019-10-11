@@ -1,5 +1,7 @@
 extends Node
 
+class_name Items
+
 const Acorn = preload("res://items/Acorn/Acorn.gd")
 const Elderberry = preload("res://items/Elderberry/Elderberry.gd")
 const Leaf = preload("res://items/Leaf/Leaf.gd")

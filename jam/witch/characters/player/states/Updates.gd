@@ -1,3 +1,4 @@
+class_name Updates
 
 static func check_walk() -> bool:
 	if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):

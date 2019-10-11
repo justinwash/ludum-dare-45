@@ -1,5 +1,7 @@
 extends Control
 
+class_name InventoryItem
+
 onready var Items = preload("res://inventory/Items.gd")
 
 var inventory

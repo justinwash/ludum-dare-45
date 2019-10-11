@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Cauldron
+
 onready var Items = preload("res://inventory/Items.gd")
 
 var items = []

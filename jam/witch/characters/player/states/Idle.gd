@@ -1,4 +1,7 @@
 extends "res://utilities/State.gd"
+
+class_name Idle
+
 const Updates = preload("Updates.gd") # Relative path
 
 func enter():

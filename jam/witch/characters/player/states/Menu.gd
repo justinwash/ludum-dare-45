@@ -1,4 +1,7 @@
 extends "res://utilities/State.gd"
+
+class_name Menu
+
 const Updates = preload("Updates.gd") # Relative path
 var Items = load("res://inventory/Items.gd")
 

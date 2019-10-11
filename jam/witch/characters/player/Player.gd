@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 const MOVE_SPEED = 125
 
 var move_dir = {

@@ -1,4 +1,7 @@
 extends "res://utilities/State.gd"
+
+class_name Walk
+
 const Updates = preload("Updates.gd")
 
 func enter():
