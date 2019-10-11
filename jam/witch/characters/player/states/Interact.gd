@@ -2,7 +2,7 @@ extends "res://utilities/State.gd"
 
 class_name Interact
 
-const Updates = preload("Updates.gd") # Relative path
+const _Updates = Updates
 
 var inventory
 var player
@@ -44,9 +44,9 @@ func consumePotion(potion):
 	player.get_node("CarriedItem").set_visibility(false)
 
 func update():
-	if Updates.check_grab():
+	if _Updates.check_grab():
 		emit_signal("change_state", "grabbing")
-	if Updates.check_walk():
+	if _Updates.check_walk():
 		emit_signal("change_state", "walk")
 	else:
 		emit_signal("change_state", "idle")

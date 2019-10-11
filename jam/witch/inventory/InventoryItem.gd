@@ -14,6 +14,8 @@ var item_name
 var item_count_label
 var item_button
 
+var item_inst
+
 var item_count
 
 
@@ -31,6 +33,7 @@ func _physics_process(delta):
 	pass
 	
 func set_inventory_entry_properties(item_inst, count):
+	self.item_inst = item_inst
 	item_id = item_inst.id
 	item_image.texture = item_inst.texture
 	item_name.text = item_inst.item_name
@@ -53,11 +56,14 @@ func _on_Carry_button_up():
 		var nearestInteractable = getNearestInteractable()
 		if nearestInteractable:
 			if nearestInteractable.name == "Cauldron":
-				nearestInteractable.interact_with_item(Items.getInstanceOfItemByItemName(item.name))
-				item_count -= 1
+				nearestInteractable.interact_with_item(item_inst)
+				item_count = inventory.get_item_by_name(item.name).quantity
 				item_count_label.text = str(item_count)
 			elif nearestInteractable.name == "Market":
-				pass
+				nearestInteractable.interact_with_item(item_inst)
+				item_count = inventory.get_item_by_name(item.name).quantity
+				item_count_label.text = str(item_count)
+				inventory_ui.money_label.text = "Money: $%d" % player_ref.money
 		else:
 			var carried = player_ref.get_node("CarriedItem")
 			carried.set_current_item(item.name)

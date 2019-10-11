@@ -39,6 +39,9 @@ func add_item(item):
 	item_list.add_child(entry_inst)
 	entry_inst.set_inventory_entry_properties(item_inst, item.quantity)
 
+func get_inventory_items():
+	return item_list.get_children()
+
 func refresh_items():
 	for child in item_list.get_children():
 		child.free()
