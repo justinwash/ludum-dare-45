@@ -39,6 +39,8 @@ func set_inventory_entry_properties(item_inst, count):
 	item_name.text = item_inst.item_name
 	item_count = count
 	item_count_label.text = str(item_count)
+	item_image.hint_tooltip = item_inst.description
+
 	item_button.text = "Carry"
 	
 	var nearestInteractable = getNearestInteractable()
@@ -48,7 +50,6 @@ func set_inventory_entry_properties(item_inst, count):
 			
 func set_button_text(text):
 	item_button.text = text
-
 
 func _on_Carry_button_up():
 	var item = inventory.get_item_by_name(item_name.text)
