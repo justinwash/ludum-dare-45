@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/player/states/StateMachine.gd" type="Script" id=2]
@@ -9,15 +9,15 @@
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=7]
 [ext_resource path="res://characters/player/CarriedItem.gd" type="Script" id=8]
 [ext_resource path="res://characters/player/sprites/idle1.png" type="Texture" id=9]
-[ext_resource path="res://characters/player/sprites/walkright0.png" type="Texture" id=10]
-[ext_resource path="res://characters/player/sprites/walkright1.png" type="Texture" id=11]
-[ext_resource path="res://characters/player/sprites/walkright2.png" type="Texture" id=12]
-[ext_resource path="res://characters/player/sprites/walkright3.png" type="Texture" id=13]
-[ext_resource path="res://characters/player/sprites/idle0.png" type="Texture" id=14]
-[ext_resource path="res://characters/player/sprites/walkdown0.png" type="Texture" id=15]
-[ext_resource path="res://characters/player/sprites/walkdown1.png" type="Texture" id=16]
-[ext_resource path="res://characters/player/sprites/walkdown2.png" type="Texture" id=17]
-[ext_resource path="res://characters/player/sprites/walkdown3.png" type="Texture" id=18]
+[ext_resource path="res://characters/player/sprites/idle3.png" type="Texture" id=10]
+[ext_resource path="res://characters/player/sprites/walkdown0.png" type="Texture" id=11]
+[ext_resource path="res://characters/player/sprites/walkdown1.png" type="Texture" id=12]
+[ext_resource path="res://characters/player/sprites/walkdown2.png" type="Texture" id=13]
+[ext_resource path="res://characters/player/sprites/walkdown3.png" type="Texture" id=14]
+[ext_resource path="res://characters/player/sprites/walkright0.png" type="Texture" id=15]
+[ext_resource path="res://characters/player/sprites/walkright1.png" type="Texture" id=16]
+[ext_resource path="res://characters/player/sprites/walkright2.png" type="Texture" id=17]
+[ext_resource path="res://characters/player/sprites/walkright3.png" type="Texture" id=18]
 [ext_resource path="res://characters/player/sprites/walkup0.png" type="Texture" id=19]
 [ext_resource path="res://characters/player/sprites/walkup1.png" type="Texture" id=20]
 [ext_resource path="res://characters/player/sprites/walkup2.png" type="Texture" id=21]
@@ -27,10 +27,10 @@
 [ext_resource path="res://characters/player/sprites/walkleft2.png" type="Texture" id=25]
 [ext_resource path="res://characters/player/sprites/walkleft3.png" type="Texture" id=26]
 [ext_resource path="res://characters/player/sprites/idle2.png" type="Texture" id=27]
-[ext_resource path="res://characters/player/sprites/idle3.png" type="Texture" id=28]
+[ext_resource path="res://characters/player/sprites/idle0.png" type="Texture" id=28]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14.1044, 11.2855 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.63928
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 49.8919
@@ -42,19 +42,19 @@ animations = [ {
 "name": "idleleft",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "walkright",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "idledown",
+"name": "idleright",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "walkdown",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "walkdown",
+"name": "walkright",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
@@ -74,15 +74,18 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
-"name": "idleright",
+"name": "idledown",
 "speed": 5.0
 } ]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, -10, 10, 5, 5, 8, 0, 9, -5, 8, -10, 5 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7.35091 )
+position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -105,9 +108,6 @@ script = ExtResource( 6 )
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[node name="witch_placeholder" type="Sprite" parent="."]
-position = Vector2( -0.882568, -1.11301 )
-
 [node name="CarriedItem" type="Sprite" parent="."]
 visible = false
 position = Vector2( 12, 10 )
@@ -115,12 +115,59 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 8 )
 
 [node name="DialogTrigger" type="Area2D" parent="."]
+position = Vector2( 0, -4 )
 
 [node name="DialogTriggerRadius" type="CollisionShape2D" parent="DialogTrigger"]
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16 )
 frames = SubResource( 3 )
 animation = "idleleft"
+
+[node name="AttackAreas" type="Area2D" parent="."]
+position = Vector2( 0, 4 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="DownAttackArea" type="CollisionShape2D" parent="AttackAreas"]
+shape = SubResource( 4 )
+
+[node name="LeftAttackArea" type="CollisionShape2D" parent="AttackAreas"]
+position = Vector2( -5, -5 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="UpAttackArea" type="CollisionShape2D" parent="AttackAreas"]
+position = Vector2( 0, -10 )
+rotation = 3.14159
+shape = SubResource( 4 )
+
+[node name="RightAttackArea" type="CollisionShape2D" parent="AttackAreas"]
+position = Vector2( 5, -5 )
+rotation = 4.71239
+shape = SubResource( 4 )
+
+[node name="DiagonalAttackAreas" type="Area2D" parent="."]
+position = Vector2( -5.31, 1.78 )
+rotation = 0.785398
+scale = Vector2( 1.5, 1.5 )
+
+[node name="DownLeftAttackArea" type="CollisionShape2D" parent="DiagonalAttackAreas"]
+shape = SubResource( 4 )
+
+[node name="UpLeftAttackArea" type="CollisionShape2D" parent="DiagonalAttackAreas"]
+position = Vector2( -5, -5 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="UpRightAttackArea" type="CollisionShape2D" parent="DiagonalAttackAreas"]
+position = Vector2( 0, -10 )
+rotation = 3.14159
+shape = SubResource( 4 )
+
+[node name="DownRightAttackArea" type="CollisionShape2D" parent="DiagonalAttackAreas"]
+position = Vector2( 5, -5 )
+rotation = 4.71239
+shape = SubResource( 4 )
 [connection signal="area_entered" from="DialogTrigger" to="." method="_on_DialogTrigger_area_entered"]
 [connection signal="area_exited" from="DialogTrigger" to="." method="_on_DialogTrigger_area_exited"]
