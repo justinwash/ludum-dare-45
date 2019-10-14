@@ -5,7 +5,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Acorn" type="Node2D"]
+[node name="Acorn" type="Node2D" groups=[
+"Item",
+]]
 script = ExtResource( 1 )
 
 [node name="Acorn" type="Sprite" parent="."]

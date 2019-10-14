@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=15]
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=16]
 [ext_resource path="res://music/witch_explore-field-track.wav" type="AudioStream" id=17]
+[ext_resource path="res://characters/enemies/squirrel/Squirrel.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -652,3 +653,20 @@ position = Vector2( -25.0976, 298.074 )
 stream = ExtResource( 17 )
 autoplay = true
 stream_paused = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Squirrel" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 36.9377, 903.862 )
+
+[node name="Squirrel2" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 124.375, 1040.05 )
+
+[node name="Squirrel3" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 276.035, 906.188 )
+
+[node name="Squirrel4" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( 119.732, 756.075 )
+
+[node name="Squirrel5" parent="Enemies" instance=ExtResource( 18 )]
+position = Vector2( -45.8565, 735.183 )

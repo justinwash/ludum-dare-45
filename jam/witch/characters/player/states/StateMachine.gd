@@ -7,5 +7,6 @@ func _ready():
 		"idle": $Idle,
 		"walk": $Walk,
 		"grabbing": $Grabbing,
-		"menu": $Menu
+		"menu": $Menu,
+		"attack": $Attack,
 	}

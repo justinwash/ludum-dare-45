@@ -16,3 +16,9 @@ static func check_menu() -> bool:
 	if Input.is_action_just_pressed("ui_home"):
 		return true
 	return false
+
+static func check_attack() -> bool:
+	if Input.is_action_just_pressed("attack"):
+		return true
+	return false
+		

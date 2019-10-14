@@ -16,3 +16,5 @@ func update():
 		emit_signal("change_state", "grabbing")
 	if Updates.check_menu():
 		emit_signal("change_state", "menu")
+	if Updates.check_attack():
+		emit_signal("change_state", "attack")

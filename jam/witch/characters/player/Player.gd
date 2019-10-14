@@ -9,6 +9,9 @@ var move_dir = {
 	'y': 0
 }
 
+enum Directions { UP, DOWN, LEFT, RIGHT }
+var facing_dir
+
 var money = 0 setget set_money,get_money
 var potions_unlocked = 0
 
