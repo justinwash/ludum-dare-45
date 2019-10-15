@@ -609,19 +609,13 @@ position = Vector2( -102.367, 261.523 )
 ] instance=ExtResource( 14 )]
 position = Vector2( -186.116, 218.995 )
 
-[node name="Acorn" parent="Items" groups=[
-"Item",
-] instance=ExtResource( 15 )]
+[node name="Acorn" parent="Items" instance=ExtResource( 15 )]
 position = Vector2( -36.072, 334.108 )
 
-[node name="Acorn2" parent="Items" groups=[
-"Item",
-] instance=ExtResource( 15 )]
+[node name="Acorn2" parent="Items" instance=ExtResource( 15 )]
 position = Vector2( 44.9813, 372.003 )
 
-[node name="Acorn3" parent="Items" groups=[
-"Item",
-] instance=ExtResource( 15 )]
+[node name="Acorn3" parent="Items" instance=ExtResource( 15 )]
 position = Vector2( 177.614, 574.11 )
 
 [node name="Leaf2" parent="Items" groups=[

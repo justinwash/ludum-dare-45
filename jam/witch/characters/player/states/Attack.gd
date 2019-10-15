@@ -36,7 +36,7 @@ func do_directional_attack(area):
 	var bodies = area.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("Enemy"):
-			body.health -= 2
+			body.damage(2)
 			print("Attacked %s, %d hp remaining" % [body.name, body.health])
 
 func update():
