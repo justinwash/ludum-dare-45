@@ -108,7 +108,7 @@ script = ExtResource( 6 )
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
-attack_cooldown = 5.0
+attack_cooldown = 0.5
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 8 )

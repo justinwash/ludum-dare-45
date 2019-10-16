@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=2]
@@ -9,9 +9,9 @@
 [ext_resource path="res://interactables/Cauldron.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interactables/Market.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/toad/Toad.tscn" type="PackedScene" id=9]
-[ext_resource path="res://tiles/New_House.png" type="Texture" id=10]
+[ext_resource path="res://interactables/House.tscn" type="PackedScene" id=10]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://tiles/Cutie_lil_witch_cabin.png" type="Texture" id=12]
+[ext_resource path="res://interactables/WitchCabin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Tree.tscn" type="PackedScene" id=13]
 [ext_resource path="res://items/Mushroom/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=15]
@@ -316,12 +316,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 15/shapes = [  ]
 15/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 29.8973, 24.7193 )
-
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 27.7312, 29.622 )
-
 [node name="Main" type="Node2D"]
 position = Vector2( 233.35, 842.86 )
 script = ExtResource( 1 )
@@ -364,15 +358,7 @@ dialog_sequence = [ "Hey there! My name's Petunia.", "Did you know you can combi
 ] instance=ExtResource( 9 )]
 position = Vector2( 178.397, 936.815 )
 
-[node name="New_House" type="Sprite" parent="."]
-position = Vector2( -118.21, 590.436 )
-texture = ExtResource( 10 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="New_House"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="New_House/StaticBody2D"]
-position = Vector2( -7.94435, 19.4637 )
-shape = SubResource( 17 )
+[node name="House" parent="." instance=ExtResource( 10 )]
 
 [node name="Player" parent="." groups=[
 "Player",
@@ -389,15 +375,8 @@ limit_right = 963
 limit_bottom = 1944
 editor_draw_limits = true
 
-[node name="Cutie_lil_witch_cabin" type="Sprite" parent="."]
-position = Vector2( 260.113, -40.4956 )
-texture = ExtResource( 12 )
-
-[node name="Area2D" type="StaticBody2D" parent="Cutie_lil_witch_cabin"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutie_lil_witch_cabin/Area2D"]
-position = Vector2( -0.725584, 11.1221 )
-shape = SubResource( 18 )
+[node name="Witch Cabin" parent="." instance=ExtResource( 12 )]
+position = Vector2( 264.002, -36.81 )
 
 [node name="Trees" type="Node2D" parent="."]
 editor/display_folded = true
