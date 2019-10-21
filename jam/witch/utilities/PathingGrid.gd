@@ -120,8 +120,8 @@ func node_from_world_point(pos):
 func get_neighbors(node):
 	var neighbors = []
 
-	for x in range(-2,1):
-		for y in range(-2,1):
+	for x in range(-1,2):
+		for y in range(-1,2):
 			if x == 0 && y == 0:
 				pass
 			else:
@@ -148,6 +148,7 @@ class PathNode:
 	var parent
 
 	var walkable : bool
+	var aux_walkable : bool
 	var position : Vector2
 
 	var g_cost : int

@@ -14,9 +14,13 @@ export var roam_timeout : float
 var current_roam_timeout : float
 
 export var max_tree_distance : float
+export var node_removal_distance : float
+
 
 var pathing_grid
 var path_finding
+
+var collision_shape
 
 var roam_path = []
 
@@ -32,9 +36,10 @@ func _ready():
 	player = get_tree().get_root().get_node("Main/Player")
 	path_finding = get_tree().get_root().get_node("Main/PathFinding")
 	pathing_grid = path_finding.get_node("PathingGrid")
+	collision_shape = get_node("CollisionShape2D")
 	
 
-func _process(delta):
+func _physics_process(delta):
 	total_time += delta
 	current_roam_timeout = max(0, current_roam_timeout - delta)
 
@@ -56,7 +61,7 @@ func flee():
 	self.move_and_slide(flee_dir * self.move_speed * self.fleeing_move_speed_mult, Vector2(0, -1))
 
 func roam():
-	if not current_tree || dist_to_current_tree() < 10 || current_roam_timeout <= 0:
+	if not current_tree || dist_to_current_tree() < node_removal_distance || current_roam_timeout <= 0:
 		current_tree = select_tree()
 		current_roam_timeout = roam_timeout
 		roam_path.clear()
@@ -66,17 +71,14 @@ func roam():
 
 	if not roam_path || roam_path.empty():
 		print("roam_path was empty, trying to find path")
-		roam_path = path_finding.find_path(start_pos, end_pos)
+		roam_path = path_finding.find_path(start_pos, end_pos, collision_shape.shape)
 		if roam_path.empty():
 			print("failed to find path, selecting new target tree")
 			current_tree = select_tree()
-		else:
-			print("found a path with nodes!")
 	else:
 		var distance_to_current_node = self.position.distance_to(roam_path[0].position)
-		if distance_to_current_node <= 5.0:
+		if distance_to_current_node <= node_removal_distance:
 			roam_path.remove(0)
-			print("removed path node")
 		if not roam_path.empty():
 			var roam_dir = get_direction_towards(roam_path[0])
 			self.move_and_slide(roam_dir * self.move_speed * self.roaming_move_speed_mult, Vector2(0, -1))
@@ -88,13 +90,13 @@ func dist_to_current_tree():
 func select_tree():
 	var trees = get_tree().get_nodes_in_group("Tree")
 	rng.randomize()
-	var pick = trees[rng.randi() % trees.size()]
-	var distance = self.position.distance_to(pick.position)
-	while distance > max_tree_distance:
-		pick = trees[rng.randi() % trees.size()]
-		distance = self.position.distance_to(pick.position)
-		print("pick was %f away" % distance)
-	return pick
+	return trees[rng.randi() % trees.size()]
+	# var distance = self.position.distance_to(pick.position)
+	# while distance > max_tree_distance:
+	# 	pick = trees[rng.randi() % trees.size()]
+	# 	distance = self.position.distance_to(pick.position)
+	# 	print("pick was %f away" % distance)
+	# return pick
 
 
 func set_health(hp):

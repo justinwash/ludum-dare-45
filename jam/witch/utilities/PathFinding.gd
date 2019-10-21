@@ -1,5 +1,5 @@
 tool
-extends Node
+extends Node2D
 
 export var pathing_grid_path : NodePath
 var pathing_grid
@@ -13,8 +13,11 @@ export var debug_start_path : NodePath
 var debug_start
 export var debug_end_path : NodePath
 var debug_end
+export var debug_aux_walkable_query_shape : Shape2D
 
-export var debug_current_node_color = Color("#ff0000")
+export var debug_current_node_color = Color("#ff00ff")
+export var debug_open_node_color = Color("#0000ff")
+export var debug_unwalkable_node_color = Color("#00ffff")
 
 var debug_path = []
 
@@ -36,24 +39,20 @@ func _physics_process(delta):
 	if Engine.editor_hint:
 		if debugging:
 			if not debug_path || debug_path.empty():
-				debug_path = find_path(debug_start.position, debug_end.position)
+				debug_path = find_path(debug_start.position, debug_end.position, debug_aux_walkable_query_shape)
 				if not debug_path.empty():
 					print("found path")
 					for node in debug_path:
-						var circle = _Debugging.Circle.new(node.position, 10.0, Color(0,255,0))
+						var circle = _Debugging.Circle.new(node.position, 15.0, debug_current_node_color)
 						_debugging.add_circle(circle)
 				else:
 					print("failed to find path")
-					debugging = false
+		debugging = false
 
 
-func find_path(start_pos, end_pos):
+func find_path(start_pos, end_pos, aux_walkable_query_shape = null):
 	var start = pathing_grid.node_from_world_point(start_pos)
-	print("start node found at (%d,%d)" % [start.position.x, start.position.y])
-	print("start node was %f from start_pos" % start.position.distance_to(start_pos))
 	var end = pathing_grid.node_from_world_point(end_pos)
-	print("end node found at (%d,%d)" % [end.position.x, end.position.y])
-	print("end node was %f from end_pos" % end.position.distance_to(end_pos))
 
 	var open = []
 	var closed = []
@@ -66,7 +65,7 @@ func find_path(start_pos, end_pos):
 		if Engine.editor_hint:
 			_debugging.circles = []
 			for node in open:
-				var circle = _Debugging.Circle.new(node.position, 5.0, debug_current_node_color)
+				var circle = _Debugging.Circle.new(node.position, 5.0, debug_open_node_color)
 				_debugging.add_circle(circle)
 
 		for i in range(1, open.size()):
@@ -81,7 +80,20 @@ func find_path(start_pos, end_pos):
 
 		var neighbors = pathing_grid.get_neighbors(current_node)
 		for neighbor in neighbors:
-			if not neighbor.walkable || closed.has(neighbor):
+			# do an extra walkable check if we supply an auxiliary collision shape
+			# this seems to be very expensive
+			if aux_walkable_query_shape:
+				var query = Physics2DShapeQueryParameters.new()
+				query.set_shape(aux_walkable_query_shape)
+				query.set_transform(Transform2D(0.0, neighbor.position))
+				var world_2d = get_world_2d()
+				neighbor.aux_walkable = world_2d.get_direct_space_state().intersect_shape(query).empty()
+			else:
+				neighbor.aux_walkable = true
+
+			if (not neighbor.walkable || not neighbor.aux_walkable || closed.has(neighbor)) && neighbor != end:
+				var circle = _Debugging.Circle.new(neighbor.position, 5.0, debug_unwalkable_node_color)
+				_debugging.add_circle(circle)
 				continue
 			var new_move_cost_to_neighbor = current_node.g_cost + get_distance(current_node, neighbor)
 			if (new_move_cost_to_neighbor < neighbor.g_cost || not open.has(neighbor)):

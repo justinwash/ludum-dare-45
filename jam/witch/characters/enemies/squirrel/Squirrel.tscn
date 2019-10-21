@@ -6,7 +6,7 @@
 [ext_resource path="res://items/Acorn/Acorn.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 13.7467
+radius = 8.03531
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.501961, 0.0392157, 0.0392157, 1 )
