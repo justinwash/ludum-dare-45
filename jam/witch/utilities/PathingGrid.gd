@@ -38,6 +38,7 @@ func calculate_members():
 	node_diameter = node_radius * 2
 	grid_size_x = int(round(grid_world_size.x/node_diameter))
 	grid_size_y = int(round(grid_world_size.y/node_diameter))
+	print("grid size was (%d,%d)" % [grid_size_x, grid_size_y])
 
 func display_nodes():
 	if not _debugging.circles.empty():
@@ -92,13 +93,13 @@ func create_grid():
 		grid[x] = []
 		grid[x].resize(grid_size_y)
 
-	var world_bottom_left = self.position - Vector2(1,0)*grid_world_size.x/2 - Vector2(0,1)*grid_world_size.y/2
+	var world_top_left = self.position # - Vector2(1,0)*grid_world_size.x - Vector2(0,1)*grid_world_size.y
 	var query = Physics2DShapeQueryParameters.new()
 	query.set_shape(query_shape)
 
 	for x in range(grid_size_x):
 		for y in range(grid_size_y):
-			var world_point = world_bottom_left + Vector2(1,0)*(x*node_diameter + node_radius) + Vector2(0,1)*(y*node_diameter+node_radius)
+			var world_point = world_top_left + Vector2(1,0)*(x*node_diameter + node_radius) + Vector2(0,1)*(y*node_diameter+node_radius)
 			query.set_transform(Transform2D(0.0, world_point))
 			var world_2d = get_world_2d()
 			var walkable = world_2d.get_direct_space_state().intersect_shape(query).empty()
@@ -106,8 +107,8 @@ func create_grid():
 
 func node_from_world_point(pos):
 	if grid && grid.size() > 0:
-		var percent_x = (pos.x + grid_world_size.x/2)/grid_world_size.x
-		var percent_y = (pos.y + grid_world_size.y/2)/grid_world_size.y
+		var percent_x = pos.x/grid_world_size.x
+		var percent_y = pos.y/grid_world_size.y
 		percent_x = clamp(percent_x, 0, 1)
 		percent_y = clamp(percent_y, 0, 1)
 	

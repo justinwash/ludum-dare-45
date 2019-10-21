@@ -44,11 +44,16 @@ func _physics_process(delta):
 						_debugging.add_circle(circle)
 				else:
 					print("failed to find path")
+					debugging = false
 
 
 func find_path(start_pos, end_pos):
 	var start = pathing_grid.node_from_world_point(start_pos)
+	print("start node found at (%d,%d)" % [start.position.x, start.position.y])
+	print("start node was %f from start_pos" % start.position.distance_to(start_pos))
 	var end = pathing_grid.node_from_world_point(end_pos)
+	print("end node found at (%d,%d)" % [end.position.x, end.position.y])
+	print("end node was %f from end_pos" % end.position.distance_to(end_pos))
 
 	var open = []
 	var closed = []
