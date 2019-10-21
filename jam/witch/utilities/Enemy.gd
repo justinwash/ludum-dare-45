@@ -6,6 +6,8 @@ export var aggressive : bool
 export var fleeing : bool
 export var health : int setget set_health, get_health
 export var move_speed : float
+export var fleeing_move_speed_mult : float
+export var roaming_move_speed_mult : float
 
 var drops
 var health_bar
@@ -14,6 +16,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	drops = $Drops
 	health_bar = $HealthBar
 	health_bar.max_value = health

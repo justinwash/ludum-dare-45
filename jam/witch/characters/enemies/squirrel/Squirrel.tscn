@@ -21,6 +21,10 @@ bg_color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 health = 5
 move_speed = 125.0
+fleeing_move_speed_mult = 1.0
+roaming_move_speed_mult = 0.4
+roam_timeout = 10.0
+max_tree_distance = 200.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
