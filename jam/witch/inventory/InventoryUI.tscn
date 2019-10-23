@@ -1,0 +1,838 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://inventory/InventoryUI.gd" type="Script" id=1]
+[ext_resource path="res://items/Elderberry/Elderberry.png" type="Texture" id=2]
+[ext_resource path="res://items/Mushroom/Mushroom.png" type="Texture" id=3]
+[ext_resource path="res://items/PotionOfMinorStomachAches/PotionOfMinorStomachAches.png" type="Texture" id=4]
+[ext_resource path="res://items/Acorn/Acorn.png" type="Texture" id=5]
+[ext_resource path="res://items/Leaf/Leaf.png" type="Texture" id=6]
+[ext_resource path="res://items/CrunchyNaturePotion/CrunchyNaturePotion.png" type="Texture" id=7]
+[ext_resource path="res://items/Feather/Feather.png" type="Texture" id=8]
+[ext_resource path="res://items/GreaterPotionOfMinorNarcolepsy/GreaterPotionOfMinorNarcolepsy.png" type="Texture" id=9]
+[ext_resource path="res://items/WeakPotionOfGreaterEnergy/WeakPotionOfGreaterEnergy.png" type="Texture" id=10]
+[ext_resource path="res://items/TastyHealthPotion/TastyHealthPotion.png" type="Texture" id=11]
+[ext_resource path="res://items/PotionOfAdvancedRevelry/PotionOfAdvancedRevelry.png" type="Texture" id=12]
+[ext_resource path="res://items/ScalyPotionOfEnhancedNausea/ScalyPotionOfEnhancedNausea.png" type="Texture" id=13]
+[ext_resource path="res://items/PotionOfToadspeak/PotionOfToadspeak.png" type="Texture" id=14]
+[ext_resource path="res://items/PotionOfDelusionaryToadform/PotionOfDelusionaryToadform.png" type="Texture" id=15]
+[ext_resource path="res://items/PotionOfLifelongAnxiety/PotionOfLifelongAnxiety.png" type="Texture" id=16]
+[ext_resource path="res://items/NightmareFuelConcoction/NightmareFuelConcoction.png" type="Texture" id=17]
+[ext_resource path="res://items/PotionOfNeversleep/PotionOfNeversleep.png" type="Texture" id=18]
+[ext_resource path="res://items/PsychoticEpisodeInABottle/PsychoticEpisodeInABottle.png" type="Texture" id=19]
+
+[node name="InventoryUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="InventoryPanel" type="Panel" parent="."]
+margin_right = 512.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="InventoryPanel"]
+margin_right = 512.0
+margin_bottom = 560.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryPanel/VSplitContainer"]
+editor/display_folded = true
+margin_right = 512.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 512, 32 )
+
+[node name="HBoxContainer" type="HSplitContainer" parent="InventoryPanel/VSplitContainer/HBoxContainer"]
+editor/display_folded = true
+margin_right = 512.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+split_offset = 301
+
+[node name="Label" type="Label" parent="InventoryPanel/VSplitContainer/HBoxContainer/HBoxContainer"]
+margin_top = 9.0
+margin_right = 332.0
+margin_bottom = 23.0
+text = "Item"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="InventoryPanel/VSplitContainer/HBoxContainer/HBoxContainer"]
+margin_left = 344.0
+margin_top = 9.0
+margin_right = 512.0
+margin_bottom = 23.0
+text = "Qt."
+align = 1
+valign = 1
+
+[node name="ItemListContainer" type="VBoxContainer" parent="InventoryPanel/VSplitContainer"]
+margin_top = 44.0
+margin_right = 512.0
+margin_bottom = 560.0
+
+[node name="MoneyPanel" type="Panel" parent="."]
+editor/display_folded = true
+margin_top = 560.0
+margin_right = 512.0
+margin_bottom = 600.0
+
+[node name="MoneyLabel" type="Label" parent="MoneyPanel"]
+margin_right = 90.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Money: 0"
+align = 1
+valign = 1
+
+[node name="PotionLabel" type="Label" parent="MoneyPanel"]
+margin_left = 210.0
+margin_right = 410.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Potions Unlocked: 0/13"
+align = 1
+valign = 1
+
+[node name="GoalLabel" type="Label" parent="MoneyPanel"]
+margin_left = 100.0
+margin_right = 200.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Goal: 1000"
+align = 1
+valign = 1
+
+[node name="InstructionPanel" type="Panel" parent="."]
+editor/display_folded = true
+margin_left = 790.0
+margin_top = 450.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="InstructionLabel" type="RichTextLabel" parent="InstructionPanel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 234.0
+margin_bottom = 150.0
+text = "L CLICK: Select items from the list
+
+SPACE: Carry item (exit the menu -> [E] to put in the cauldron)
+
+TAB: Exit menu
+
+Hover over Items in Recipe List to View Name"
+
+[node name="RecipePanel" type="Panel" parent="."]
+editor/display_folded = true
+margin_left = 550.0
+margin_right = 1024.0
+margin_bottom = 190.0
+
+[node name="RecipeTitleLabel" type="Label" parent="RecipePanel"]
+margin_right = 474.0
+margin_bottom = 20.0
+text = "Recipes"
+align = 1
+valign = 1
+
+[node name="IngredientLabel" type="Label" parent="RecipePanel"]
+margin_top = 20.0
+margin_right = 240.0
+margin_bottom = 40.0
+text = "Ingredients"
+align = 1
+valign = 1
+
+[node name="ResultLabel" type="Label" parent="RecipePanel"]
+margin_left = 220.0
+margin_top = 20.0
+margin_right = 474.0
+margin_bottom = 40.0
+text = "Result"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RecipePanel"]
+margin_top = 40.0
+margin_right = 474.0
+margin_bottom = 190.0
+
+[node name="RecipeList" type="VBoxContainer" parent="RecipePanel/ScrollContainer"]
+margin_right = 474.0
+margin_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+margin_right = 474.0
+margin_bottom = 4.0
+
+[node name="PotionOfMinorStomachAches" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfMinorStomachAches"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ElderberryImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfMinorStomachAches/Ingredients"]
+margin_left = 84.0
+margin_right = 116.0
+margin_bottom = 32.0
+hint_tooltip = "Elderberry"
+texture = ExtResource( 2 )
+
+[node name="MushroomImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfMinorStomachAches/Ingredients"]
+margin_left = 120.0
+margin_right = 144.0
+margin_bottom = 32.0
+hint_tooltip = "Mushroom"
+texture = ExtResource( 3 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfMinorStomachAches"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfMinorStomachAchesImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfMinorStomachAches/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Minor Stomach Aches"
+texture = ExtResource( 4 )
+
+[node name="PotionOfMinorStomachAchesSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="CrunchyNaturePotion" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/CrunchyNaturePotion"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AcornImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/CrunchyNaturePotion/Ingredients"]
+margin_left = 87.0
+margin_right = 112.0
+margin_bottom = 32.0
+hint_tooltip = "Acorn"
+texture = ExtResource( 5 )
+
+[node name="LeafImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/CrunchyNaturePotion/Ingredients"]
+margin_left = 116.0
+margin_right = 142.0
+margin_bottom = 32.0
+hint_tooltip = "Leaf"
+texture = ExtResource( 6 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/CrunchyNaturePotion"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="CrunchyNaturePotionImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/CrunchyNaturePotion/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Crunchy Nature Potion"
+texture = ExtResource( 7 )
+
+[node name="CrunchyNaturePotionSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="GreaterPotionOfMinorNarcolepsy" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AcornImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy/Ingredients"]
+margin_left = 70.0
+margin_right = 95.0
+margin_bottom = 32.0
+hint_tooltip = "Acorn"
+texture = ExtResource( 5 )
+
+[node name="FeatherImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy/Ingredients"]
+margin_left = 99.0
+margin_right = 131.0
+margin_bottom = 32.0
+hint_tooltip = "Feather"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+
+[node name="MushroomImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy/Ingredients"]
+margin_left = 135.0
+margin_right = 159.0
+margin_bottom = 32.0
+hint_tooltip = "Mushroom"
+texture = ExtResource( 3 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GreaterPotionOfMinorNarcolepsyImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/GreaterPotionOfMinorNarcolepsy/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Greater Potion of Minor Narcolepsy"
+texture = ExtResource( 9 )
+
+[node name="GreaterPotionOfMinorNarcolepsySep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="WeakPotionOfGreaterEnergy" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FeatherImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy/Ingredients"]
+margin_left = 69.0
+margin_right = 101.0
+margin_bottom = 32.0
+hint_tooltip = "Feather"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+
+[node name="LeafImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy/Ingredients"]
+margin_left = 105.0
+margin_right = 131.0
+margin_bottom = 32.0
+hint_tooltip = "Leaf"
+texture = ExtResource( 6 )
+
+[node name="MushroomImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy/Ingredients"]
+margin_left = 135.0
+margin_right = 159.0
+margin_bottom = 32.0
+hint_tooltip = "Mushroom"
+texture = ExtResource( 3 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="WeakPotionOfGreaterEnergy" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/WeakPotionOfGreaterEnergy/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Weak Potion of Greater Energy"
+texture = ExtResource( 10 )
+
+[node name="WeakPotionOfGreaterEnergySep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="TastyHealthPotion" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/TastyHealthPotion"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfMinorStomachAchesImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/TastyHealthPotion/Ingredients"]
+margin_left = 80.0
+margin_right = 112.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Minor Stomach Aches"
+texture = ExtResource( 4 )
+
+[node name="CrunchyNaturePotionImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/TastyHealthPotion/Ingredients"]
+margin_left = 116.0
+margin_right = 148.0
+margin_bottom = 32.0
+hint_tooltip = "Crunchy Nature Potion"
+texture = ExtResource( 7 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/TastyHealthPotion"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TastyHealthPotionImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/TastyHealthPotion/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Tasty Health Potion"
+texture = ExtResource( 11 )
+
+[node name="TastyHealthPotionSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="PotionOfAdvancedRevelry" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FeatherImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry/Ingredients"]
+margin_left = 66.0
+margin_right = 98.0
+margin_bottom = 32.0
+hint_tooltip = "Feather"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+
+[node name="MushroomImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry/Ingredients"]
+margin_left = 102.0
+margin_right = 126.0
+margin_bottom = 32.0
+hint_tooltip = "Mushroom"
+texture = ExtResource( 3 )
+
+[node name="TastyHealthPotionImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry/Ingredients"]
+margin_left = 130.0
+margin_right = 162.0
+margin_bottom = 32.0
+hint_tooltip = "Tasty Health Potion"
+texture = ExtResource( 11 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfAdvancedRevelry" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfAdvancedRevelry/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Advanced Revelry"
+texture = ExtResource( 12 )
+
+[node name="PotionOfAdvancedRevelrySep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="ScalyPotionOfEnhancedNausea" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ElderberryImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea/Ingredients"]
+margin_left = 62.0
+margin_right = 94.0
+margin_bottom = 32.0
+hint_tooltip = "Elderberry"
+texture = ExtResource( 2 )
+
+[node name="FeatherImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea/Ingredients"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Feather"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+
+[node name="PotionOfMinorStomachAchesImg3" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea/Ingredients"]
+margin_left = 134.0
+margin_right = 166.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Minor Stomach Aches"
+texture = ExtResource( 4 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ScalyPotionOfEnhancedNauseaImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/ScalyPotionOfEnhancedNausea/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Scaly Potion of Enhanced Nausea"
+texture = ExtResource( 13 )
+
+[node name="ScalyPotionOfEnhancedNauseaSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="PotionOfToadspeak" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfToadspeak"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TastyHealthPotionImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfToadspeak/Ingredients"]
+margin_left = 80.0
+margin_right = 112.0
+margin_bottom = 32.0
+hint_tooltip = "Tasty Health Potion"
+texture = ExtResource( 11 )
+
+[node name="PotionOfAdvancedRevelry2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfToadspeak/Ingredients"]
+margin_left = 116.0
+margin_right = 148.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Advanced Revelry"
+texture = ExtResource( 12 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfToadspeak"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfToadspeakImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfToadspeak/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Toadspeak"
+texture = ExtResource( 14 )
+
+[node name="PotionOfToadspeakSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="PotionOfDelusionaryToadform" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfMinorStomachAchesImg3" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform/Ingredients"]
+margin_left = 62.0
+margin_right = 94.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Minor Stomach Aches"
+texture = ExtResource( 4 )
+
+[node name="ScalyPotionOfEnhancedNauseaImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform/Ingredients"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Scaly Potion of Enhanced Nausea"
+texture = ExtResource( 13 )
+
+[node name="PotionOfToadspeakImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform/Ingredients"]
+margin_left = 134.0
+margin_right = 166.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Toadspeak"
+texture = ExtResource( 14 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfDelusionaryToadformImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfDelusionaryToadform/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Delusionary Toadform"
+texture = ExtResource( 15 )
+
+[node name="PotionOfDelusionaryToadformSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 12.0
+
+[node name="PotionOfLifelongAnxiety" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 462.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety"]
+margin_right = 229.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="WeakPotionOfGreaterEnergy2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety/Ingredients"]
+margin_left = 62.0
+margin_right = 94.0
+margin_bottom = 32.0
+hint_tooltip = "Weak Potion of Greater Energy"
+texture = ExtResource( 10 )
+
+[node name="ScalyPotionOfEnhancedNauseaImg3" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety/Ingredients"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Scaly Potion of Enhanced Nausea"
+texture = ExtResource( 13 )
+
+[node name="PotionOfDelusionaryToadformImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety/Ingredients"]
+margin_left = 134.0
+margin_right = 166.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Delusionary Toadform"
+texture = ExtResource( 15 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfLifelongAnxietyImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfLifelongAnxiety/Result"]
+margin_left = 98.0
+margin_right = 130.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Lifelong Anxiety"
+texture = ExtResource( 16 )
+
+[node name="PotionOfLifelongAnxietySep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 12.0
+
+[node name="NightmareFuelConcoction" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/NightmareFuelConcoction"]
+margin_right = 235.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GreaterPotionOfMinorNarcolepsyImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/NightmareFuelConcoction/Ingredients"]
+margin_left = 83.0
+margin_right = 115.0
+margin_bottom = 32.0
+hint_tooltip = "Greater Potion of Minor Narcolepsy"
+texture = ExtResource( 9 )
+
+[node name="PotionOfLifelongAnxietyImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/NightmareFuelConcoction/Ingredients"]
+margin_left = 119.0
+margin_right = 151.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Lifelong Anxiety"
+texture = ExtResource( 16 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/NightmareFuelConcoction"]
+margin_left = 239.0
+margin_right = 474.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="NightmareFuelConcoctionImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/NightmareFuelConcoction/Result"]
+margin_left = 101.0
+margin_right = 133.0
+margin_bottom = 32.0
+hint_tooltip = "Nightmare Fuel Concoction"
+texture = ExtResource( 17 )
+
+[node name="NightmareFuelConcoctionSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 12.0
+
+[node name="PotionOfNeversleep" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+editor/display_folded = true
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfNeversleep"]
+margin_right = 235.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="WeakPotionOfGreaterEnergy2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfNeversleep/Ingredients"]
+margin_left = 83.0
+margin_right = 115.0
+margin_bottom = 32.0
+hint_tooltip = "Weak Potion of Greater Energy"
+texture = ExtResource( 10 )
+
+[node name="PotionOfAdvancedRevelry2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfNeversleep/Ingredients"]
+margin_left = 119.0
+margin_right = 151.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Advanced Revelry"
+texture = ExtResource( 12 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfNeversleep"]
+margin_left = 239.0
+margin_right = 474.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PotionOfNeversleepImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PotionOfNeversleep/Result"]
+margin_left = 101.0
+margin_right = 133.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Neversleep"
+texture = ExtResource( 18 )
+
+[node name="PotionOfNeversleepSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 12.0
+
+[node name="PsychoticEpisodeInABottle" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 40.0
+
+[node name="Ingredients" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PsychoticEpisodeInABottle"]
+margin_right = 235.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="NightmareFuelConcoctionImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PsychoticEpisodeInABottle/Ingredients"]
+margin_left = 83.0
+margin_right = 115.0
+margin_bottom = 32.0
+hint_tooltip = "Nightmare Fuel Concoction"
+texture = ExtResource( 17 )
+
+[node name="PotionOfNeversleepImg2" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PsychoticEpisodeInABottle/Ingredients"]
+margin_left = 119.0
+margin_right = 151.0
+margin_bottom = 32.0
+hint_tooltip = "Potion of Neversleep"
+texture = ExtResource( 18 )
+
+[node name="Result" type="HBoxContainer" parent="RecipePanel/ScrollContainer/RecipeList/PsychoticEpisodeInABottle"]
+margin_left = 239.0
+margin_right = 474.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PsychoticEpisodeInABottleImg" type="TextureRect" parent="RecipePanel/ScrollContainer/RecipeList/PsychoticEpisodeInABottle/Result"]
+margin_left = 101.0
+margin_right = 133.0
+margin_bottom = 32.0
+hint_tooltip = "Psychotic Episode in a Bottle"
+texture = ExtResource( 19 )
+
+[node name="PsychoticEpisodeInABottleSep" type="HSeparator" parent="RecipePanel/ScrollContainer/RecipeList"]
+visible = false
+margin_top = 8.0
+margin_right = 474.0
+margin_bottom = 12.0

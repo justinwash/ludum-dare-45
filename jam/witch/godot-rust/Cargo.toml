@@ -1,0 +1,15 @@
+
+
+[workspace]
+members = [
+    "gdnative",
+    "gdnative-sys",
+    "gdnative-derive",
+    "gdnative-core",
+    "gdnative-bindings",
+    "test",
+    "bindings_generator",
+    "examples/hello_world",
+    "examples/spinning_cube",
+    "examples/scene_create",
+]

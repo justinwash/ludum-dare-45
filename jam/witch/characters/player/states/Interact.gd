@@ -1,5 +1,8 @@
 extends "res://utilities/State.gd"
-const Updates = preload("Updates.gd") # Relative path
+
+class_name Interact
+
+const _Updates = Updates
 
 var inventory
 var player
@@ -41,29 +44,49 @@ func consumePotion(potion):
 	player.get_node("CarriedItem").set_visibility(false)
 
 func update():
-	if Updates.check_grab():
+	if _Updates.check_grab():
 		emit_signal("change_state", "grabbing")
-	if Updates.check_walk():
+	if _Updates.check_walk():
 		emit_signal("change_state", "walk")
 	else:
 		emit_signal("change_state", "idle")
 
 func getNearestItem():
 	var items = get_tree().get_nodes_in_group("Item")
+	var distances = []
 	for item in items:
 		var distanceToActor = item.position.distance_to(actor.position)
 
 		if(distanceToActor < 50):
-			print(distanceToActor)
-			return item;
+			distances.append({"item":item, "distance":distanceToActor})
+			
+	if distances.size() > 0:
+		var minDistance = 1000
+		var item
+		for pair in distances:
+			if pair.distance < minDistance:
+				item = pair.item
+				minDistance = pair.distance
+		return item
+		
 	return null
 
 func getNearestInteractable():
-	var items = get_tree().get_nodes_in_group("Interactable")
-	for item in items:
-		var distanceToActor = item.position.distance_to(actor.position)
-
+	var interactables = get_tree().get_nodes_in_group("Interactable")
+	var distances = []
+	for interactable in interactables:
+		var distanceToActor = interactable.position.distance_to(actor.position)
+	
 		if(distanceToActor < 50):
-			print(distanceToActor)
-			return item;
+			distances.append({"interactable":interactable, "distance":distanceToActor})
+	
+	if distances.size() > 0:
+		var minDistance = 1000
+		var interactable
+		for pair in distances:
+			if pair.distance < minDistance:
+				interactable = pair.interactable
+				minDistance = pair.distance
+		return interactable
+		
 	return null

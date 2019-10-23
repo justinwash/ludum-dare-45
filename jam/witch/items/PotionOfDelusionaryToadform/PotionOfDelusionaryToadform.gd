@@ -1,4 +1,6 @@
 extends "res://inventory/Item.gd"
+
+class_name PotionOfDelusionaryToadform
 	
 var tex = preload("res://items/PotionOfDelusionaryToadform/PotionOfDelusionaryToadform.png")
 

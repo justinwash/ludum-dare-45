@@ -9,7 +9,6 @@
 script = ExtResource( 1 )
 
 [node name="Elderberry" type="Sprite" parent="."]
-position = Vector2( -0.63649, 1.13223 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 

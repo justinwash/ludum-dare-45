@@ -1,9 +1,11 @@
 extends Control
 
+class_name InventoryUI
+
 onready var Items = preload("res://inventory/Items.gd")
 
 var item_list
-var quantity_list
+onready var inventory_entry_template = preload("res://inventory/InventoryItem.tscn")
 
 var money_label
 var potion_label
@@ -18,23 +20,39 @@ var selected = [1000]
 func _ready():
 	player = get_node("../../Player")
 	inventory = get_node("../../Player/Inventory")
-	item_list = get_node("ItemList")
-	quantity_list = $QuantityList
+	item_list = get_node("InventoryPanel/VSplitContainer/ItemListContainer")
 	money_label = get_node("MoneyPanel/MoneyLabel")
 	potion_label = get_node("MoneyPanel/PotionLabel")
 	recipe_list = get_node("RecipePanel/ScrollContainer/RecipeList")
-	print("Inventory Test Ready")
+	
+	print("Inventory UI Ready")
 
+func set_all_button_text(text):
+	var interactable
+	var entries = item_list.get_children()
+	for entry in entries:
+		entry.set_button_text(text)
+
+func add_item(item):
+	var item_inst = Items.getInstanceOfItemByItemName(item.name)
+	var entry_inst = inventory_entry_template.instance()
+	item_list.add_child(entry_inst)
+	entry_inst.set_inventory_entry_properties(item_inst, item.quantity)
+
+func get_inventory_items():
+	return item_list.get_children()
 
 func refresh_items():
-	item_list.clear()
-	quantity_list.clear()
+	for child in item_list.get_children():
+		child.free()
 	
 
 	for item in inventory.playerCollectedItems:
 		var item_inst = Items.getInstanceOfItemByItemName(item.name)
-		item_list.add_item(item_inst.item_name, item_inst.texture)
-		quantity_list.add_item(str(item.quantity), load("res://tiles/blank_16x16.png"))
+		var entry_inst = inventory_entry_template.instance()
+		item_list.add_child(entry_inst)
+		entry_inst.set_inventory_entry_properties(item_inst, item.quantity)
+		
 
 	money_label.text = "Money: " + str(player.get_money())
 	potion_label.text = "Potions Unlocked: %s/13" % str(player.potions_unlocked)
@@ -99,11 +117,12 @@ func get_collected_item_ids():
 	return item_ids
 
 func _physics_process(delta):
-	var new_selected = item_list.get_selected_items()
-	if(len(new_selected) > 0):
-		if (new_selected[0] != selected[0]):
-			selected = new_selected
-			print(item_list.get_item_text(selected[0]))
+#	var new_selected = item_list.get_selected_items()
+#	if(len(new_selected) > 0):
+#		if (new_selected[0] != selected[0]):
+#			selected = new_selected
+#			print(item_list.get_item_text(selected[0]))
+	pass
 
 
 func _on_ItemList_item_activated(index):

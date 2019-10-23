@@ -1,0 +1,24 @@
+[remap]
+
+importer="texture_array"
+type="TextureArray"
+path="res://.import/Sprite_creature_squirrel.png-f9418b66cb5d16366be476f7684298fc.texarr"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://characters/enemies/squirrel/Sprite_creature_squirrel.png"
+dest_files=[ "res://.import/Sprite_creature_squirrel.png-f9418b66cb5d16366be476f7684298fc.texarr" ]
+
+[params]
+
+compress/mode=0
+compress/no_bptc_if_rgb=false
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/srgb=2
+slices/horizontal=8
+slices/vertical=8

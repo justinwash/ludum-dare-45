@@ -17,7 +17,6 @@ position = Vector2( 2.76706, 0.96353 )
 shape = SubResource( 1 )
 
 [node name="PotionOfMinorStomachAches" type="Sprite" parent="."]
-position = Vector2( 26.8307, 31.4123 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 

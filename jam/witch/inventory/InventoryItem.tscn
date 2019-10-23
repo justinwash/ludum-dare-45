@@ -1,38 +1,86 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://inventory/InventoryItem.gd" type="Script" id=1]
-[ext_resource path="res://items/Leaf/Leaf.png" type="Texture" id=2]
+[ext_resource path="res://items/Feather/Feather.png" type="Texture" id=2]
 
-[node name="InventoryItem" type="Control"]
+[node name="InventoryItem" type="Container"]
+rect_min_size = Vector2( 512, 32 )
+size_flags_horizontal = 3
 script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 1.46301
-margin_top = 0.975372
-margin_right = 143.463
-margin_bottom = 40.9754
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_right = 512.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 512, 32 )
+dragger_visibility = 2
 
-[node name="ItemName" type="Label" parent="HBoxContainer"]
-margin_top = 13.0
-margin_right = 26.0
-margin_bottom = 27.0
-text = "Leaf"
+[node name="LeftHBox" type="HBoxContainer" parent="HSplitContainer"]
+margin_right = 412.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
 
-[node name="ItemImage" type="TextureRect" parent="HBoxContainer"]
-margin_left = 30.0
-margin_right = 62.0
-margin_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="HSplitContainer/LeftHBox"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+
+[node name="ItemImage" type="TextureRect" parent="HSplitContainer/LeftHBox/CenterContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
 texture = ExtResource( 2 )
+stretch_mode = 1
 
-[node name="ItemCount" type="Label" parent="HBoxContainer"]
-margin_left = 66.0
-margin_top = 13.0
-margin_right = 74.0
-margin_bottom = 27.0
+[node name="CenterContainer2" type="CenterContainer" parent="HSplitContainer/LeftHBox"]
+margin_left = 36.0
+margin_right = 412.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="HSplitContainer/LeftHBox/CenterContainer2"]
+margin_left = 124.0
+margin_right = 252.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 128, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Leaf"
+align = 1
+valign = 1
+
+[node name="RightHBox" type="HBoxContainer" parent="HSplitContainer"]
+margin_left = 412.0
+margin_right = 512.0
+margin_bottom = 32.0
+alignment = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="HSplitContainer/RightHBox"]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="ItemCount" type="Label" parent="HSplitContainer/RightHBox/CenterContainer3"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_vertical = 1
 text = "0"
+align = 1
+valign = 1
 
-[node name="Carry" type="Button" parent="HBoxContainer"]
-margin_left = 78.0
-margin_right = 122.0
-margin_bottom = 40.0
+[node name="CenterContainer4" type="CenterContainer" parent="HSplitContainer/RightHBox"]
+margin_left = 36.0
+margin_right = 100.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
+
+[node name="Carry" type="Button" parent="HSplitContainer/RightHBox/CenterContainer4"]
+margin_right = 64.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 64, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Carry"
+[connection signal="button_up" from="HSplitContainer/RightHBox/CenterContainer4/Carry" to="." method="_on_Carry_button_up"]

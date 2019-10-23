@@ -1,5 +1,7 @@
 extends Node
 
+class_name FiniteStateMachine
+
 export(NodePath) var ACTOR
 export(NodePath) var START_STATE
 

@@ -1,9 +1,12 @@
 extends Node2D
 
+class_name Market
+
 export(NodePath) var DIALOG_REF
 
 var player
 var inventory
+var inventory_ui
 var dialog_ref
 
 export var dialog_sequence = []
@@ -15,6 +18,7 @@ func _ready():
 	dialog_ref = get_node(DIALOG_REF)
 	player = get_node("../Player")
 	inventory = player.get_node("Inventory")
+	inventory_ui = get_tree().get_root().get_node("Main/Canvas/InventoryUI")
 
 	dialog_flags = [false, false, false]
 
@@ -38,9 +42,14 @@ func interact():
 	if carried.get("current_item"):
 		var item = carried.current_item
 		inventory.remove_item_by_name(item.item_name)
-		player.add_money(item.price)
+		player.money += item.price
 		carried.set_current_item(null)
 		dialog_ref.text_box.set_text("Thanks!")
+
+func interact_with_item(item):
+	player.money += item.price
+	inventory.remove_item_by_name(item.item_name)
+
 
 func interactable_area_entered():
 	var carried = player.get_node("CarriedItem")
@@ -60,7 +69,12 @@ func interactable_area_entered():
 		dialog_ref.text_box.set_text(text)
 		dialog_ref.visible = true
 
+	var inv_items = inventory_ui.get_inventory_items()
+	for inv_item in inv_items:
+		inv_item.set_button_text("Sell ($%d)" % inv_item.item_inst.price)
+
 
 
 func interactable_area_exited():
 	dialog_ref.visible = false
+	inventory_ui.set_all_button_text("Carry")
