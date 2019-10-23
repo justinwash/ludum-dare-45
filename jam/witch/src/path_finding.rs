@@ -12,8 +12,6 @@ pub struct RPathFinding {
     debug_current_node_color: godot::Color,
     debug_open_node_color: godot::Color,
     debug_unwalkable_node_color: godot::Color,
-
-    pathing_grid_opt: Option<godot::Node>
 }
 
 unsafe impl Send for RPathFinding {}
@@ -118,15 +116,12 @@ impl RPathFinding {
             debug_current_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
             debug_open_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
             debug_unwalkable_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
-
-            pathing_grid_opt: None
         }
     }
 
     #[export]
     unsafe fn _ready(&mut self, mut owner: godot::Node2D) {
         owner.set_physics_process(true);
-        self.pathing_grid_opt = owner.get_node(godot::NodePath::from_str(&self.pathing_grid_path.to_string()));
     }
 
     #[export]
@@ -139,7 +134,8 @@ impl RPathFinding {
     #[export]
     unsafe fn find_path(&mut self, mut owner: godot::Node2D, mut start_pos: godot::Vector2, mut end_pos: godot::Vector2, mut aux_walkable_query_shape: godot::Shape2D) {
 
-        if let Some(pathing_grid) = self.pathing_grid_opt {
+        let pathing_grid_opt = owner.get_node(godot::NodePath::from_str(&self.pathing_grid_path.to_string()));
+        if let Some(pathing_grid) = pathing_grid_opt {
 
             let mut pathing_grid_variant = godot::Variant::from_object(&pathing_grid);
             match pathing_grid_variant.call(
