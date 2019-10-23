@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
-[ext_resource path="res://utilities/PathFinding.gd" type="Script" id=2]
+[ext_resource path="res://native/RPathFinding.gdns" type="Script" id=2]
 [ext_resource path="res://utilities/Debugging.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utilities/PathingGrid.gd" type="Script" id=4]
 [ext_resource path="res://tiles/swamp-tileset.png" type="Texture" id=5]
@@ -23,7 +23,6 @@
 [ext_resource path="res://characters/enemies/squirrel/Squirrel.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 1.0
@@ -335,13 +334,10 @@ __meta__ = {
 [node name="PathFinding" type="Node2D" parent="."]
 script = ExtResource( 2 )
 pathing_grid_path = NodePath("PathingGrid")
-debugging = false
-debug_start_path = NodePath("../Enemies/Squirrel")
-debug_end_path = NodePath("../Trees/Tree40")
-debug_aux_walkable_query_shape = SubResource( 1 )
-debug_current_node_color = Color( 1, 0, 1, 1 )
-debug_open_node_color = Color( 0, 0, 1, 1 )
-debug_unwalkable_node_color = Color( 0, 1, 1, 1 )
+debugging/is_debugging = null
+debugging/debug_start_path = null
+debugging/debug_end_path = null
+debugging/aux_walkable_query_shape = SubResource( 1 )
 
 [node name="Debugging" parent="PathFinding" instance=ExtResource( 3 )]
 z_index = 2
