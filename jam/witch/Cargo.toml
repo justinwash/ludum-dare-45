@@ -7,11 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-<<<<<<< HEAD
 gdnative = { git = "https://github.com/GodotNativeTools/godot-rust" }
-=======
-gdnative = "0.5.0"
->>>>>>> 74c3a1654bc8021fb0426e5d04cca3ad776a035a
 
 [lib]
 crate-type = ["cdylib"]

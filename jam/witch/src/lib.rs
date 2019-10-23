@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #[macro_use]
 extern crate gdnative as godot;
 
@@ -83,7 +82,7 @@ impl godot::NativeClass for RPathFinding {
             getter: |this: &RPathFinding| this.debug_open_node_color,
             setter: |this: &mut RPathFinding, v| this.debug_open_node_color = v,
             usage: PropertyUsage::DEFAULT,
-        })
+        });
     }
 
 }
@@ -124,12 +123,3 @@ fn init(handle: godot::init::InitHandle) {
 godot_gdnative_init!();
 godot_nativescript_init!(init);
 godot_gdnative_terminate!();
-=======
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
->>>>>>> 74c3a1654bc8021fb0426e5d04cca3ad776a035a
