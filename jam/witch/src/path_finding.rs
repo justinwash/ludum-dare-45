@@ -3,6 +3,8 @@
 use godot::init::{Property, PropertyHint, PropertyUsage};
 use godot::GodotString;
 
+use std::collections::HashSet;
+
 pub struct RPathFinding {
     pathing_grid_path: godot::NodePath,
     debugging: bool,
@@ -138,12 +140,85 @@ impl RPathFinding {
         if let Some(pathing_grid) = pathing_grid_opt {
 
             let mut pathing_grid_variant = godot::Variant::from_object(&pathing_grid);
+
+            let mut start = godot::Variant::new();
+            let mut end = godot::Variant::new();
+
             match pathing_grid_variant.call(
                 &GodotString::from_str("node_from_world_point"), 
                 &[godot::Variant::from_vector2(&start_pos)]) {
-                    Ok(_) => godot_print!("i think i got the node"),
+                    Ok(v) => { start = v; godot_print!("think i got it") },
                     Err(_) => godot_print!("we didnt get the node :(")
                 };
+
+            match pathing_grid_variant.call(
+                &GodotString::from_str("node_from_world_point"), 
+                &[godot::Variant::from_vector2(&start_pos)]) {
+                    Ok(v) => { end = v; godot_print!("think i got it") },
+                    Err(_) => godot_print!("we didnt get the node :(")
+                };
+
+            let mut open: &mut Vec<godot::Variant> = &mut Vec::new();
+            let mut closed: &mut Vec<godot::Variant> = &mut Vec::new();
+
+            open.push(start);
+
+            
+            while !open.is_empty() {
+                let mut current_node: godot::Variant = open[0].clone();
+
+                for i in 1..open.len() {
+                    let mut open_f_cost = 0;
+                    let mut current_f_cost = 0;
+                    let mut open_h_cost = 0;
+                    let mut current_h_cost = 0;
+
+                    let mut current_open: godot::Variant = open[i].clone();
+
+                    match (&mut current_open).call(&GodotString::from_str("get_f_cost"), &[]) {
+                        Ok(v) => open_f_cost = v.to_i64(),
+                        Err(_) => godot_print!("error getting open f cost")
+                    };
+
+                    match current_node.call(&GodotString::from_str("get_f_cost"), &[]) {
+                        Ok(v) => current_f_cost = v.to_i64(),
+                        Err(_) => godot_print!("error getting current f cost")
+                    };
+
+                    match current_open.call(&GodotString::from_str("get_h_cost"), &[]) {
+                        Ok(v) => open_h_cost = v.to_i64(),
+                        Err(_) => godot_print!("error getting open h cost")
+                    };
+
+                    match current_node.call(&GodotString::from_str("get_h_cost"), &[]) {
+                        Ok(v) => current_h_cost = v.to_i64(),
+                        Err(_) => godot_print!("error getting current h cost")
+                    };
+
+                    godot_print!("open_f: {} | current_f: {} | open_h: {} | current_h: {}", open_f_cost, current_f_cost, open_h_cost, current_h_cost);
+
+                    if (open_f_cost < current_f_cost) || (open_f_cost == current_f_cost && open_h_cost < current_h_cost) {
+                        current_node = current_open;
+                    }
+                }
+
+                open.retain(|x| &current_node != x);
+                closed.push(current_node);
+
+                if closed[closed.len()] == end { // this is sorta dumb but it should work i guess. fuck ownership.
+                    return //get_node_path(start, end);
+                }
+
+                let mut neighbors = godot::VariantArray::new();
+                match pathing_grid_variant.call(
+                &GodotString::from_str("get_neighbors"), 
+                &[godot::Variant::from_variant(&current_node)]) {
+                    Ok(v) => { end = v; godot_print!("think i got it") },
+                    Err(_) => godot_print!("we didnt get the node :(")
+                };
+            }
+
+
         }
         return
     }

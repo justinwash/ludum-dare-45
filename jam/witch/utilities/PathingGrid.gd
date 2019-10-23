@@ -164,6 +164,18 @@ class PathNode:
 	func get_f_cost():
 		return h_cost + g_cost
 
+	func get_h_cost():
+		return h_cost
+
+	func get_g_cost():
+		return g_cost
+
+	func set_h_cost(h):
+		h_cost = h
+
+	func set_g_cost(g):
+		g_cost = g
+
 
 	
 

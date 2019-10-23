@@ -3,5 +3,5 @@
 [ext_resource path="res://native/gdnativelibrary.tres" type="GDNativeLibrary" id=1]
 
 [resource]
-class_name = "PathFinding"
+class_name = "RPathFinding"
 library = ExtResource( 1 )
