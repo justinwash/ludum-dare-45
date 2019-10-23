@@ -12,7 +12,9 @@ struct RPathFinding {
     debug_aux_walkable_query_shape: godot::Shape2D,
     debug_current_node_color: godot::Color,
     debug_open_node_color: godot::Color,
-    debug_unwalkable_node_color: godot::Color
+    debug_unwalkable_node_color: godot::Color,
+
+    pathing_grid_opt: Option<godot::Node>
 }
 
 unsafe impl Send for RPathFinding {}
@@ -116,14 +118,16 @@ impl RPathFinding {
             debug_aux_walkable_query_shape: godot::Shape2D { this: std::ptr::null_mut() },
             debug_current_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
             debug_open_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
-            debug_unwalkable_node_color: godot::Color::rgb(0.0, 0.0, 0.0)
+            debug_unwalkable_node_color: godot::Color::rgb(0.0, 0.0, 0.0),
+
+            pathing_grid_opt: None
         }
     }
 
     #[export]
     unsafe fn _ready(&mut self, mut owner: godot::Node2D) {
         owner.set_physics_process(true);
-        
+        self.pathing_grid_opt = owner.get_node(godot::NodePath::from_str(&self.pathing_grid_path.to_string()));
     }
 
     #[export]
@@ -131,6 +135,20 @@ impl RPathFinding {
         
 
         
+    }
+
+    fn find_path(&mut self, mut start_pos: godot::Vector2, mut end_pos: godot::Vector2, mut aux_walkable_query_shape: godot::Shape2D) {
+
+        if let Some(pathing_grid) = self.pathing_grid_opt {
+
+            let mut pathing_grid_variant = godot::Variant::from_object(&pathing_grid);
+            match pathing_grid_variant.call(
+                &GodotString::from_str("node_from_world_point"), 
+                &[godot::Variant::from_vector2(&start_pos)]) {
+                    Ok(_) => godot_print!("i think i got the node"),
+                    Err(_) => godot_print!("we didnt get the node :(")
+                };
+        }
     }
 }
 
