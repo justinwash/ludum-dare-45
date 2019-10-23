@@ -1,9 +1,6 @@
 #[macro_use]
 extern crate gdnative as godot;
 
-use godot::init::{Property, PropertyHint, PropertyUsage};
-use godot::GodotString;
-
 mod pathfinding;
 
 use pathfinding::PathFinding;
