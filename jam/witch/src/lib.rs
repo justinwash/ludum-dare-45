@@ -76,11 +76,29 @@ impl godot::NativeClass for RPathFinding {
         });
 
         builder.add_property(Property {
+            name: "debugging/current_node_color",
+            default: godot::Color::rgb(0.0, 0.0, 0.0),
+            hint: PropertyHint::None,
+            getter: |this: &RPathFinding| this.debug_current_node_color,
+            setter: |this: &mut RPathFinding, v| this.debug_current_node_color = v,
+            usage: PropertyUsage::DEFAULT,
+        });
+
+        builder.add_property(Property {
             name: "debugging/open_node_color",
             default: godot::Color { r:0.0, g:0.0, b:0.0, a:1.0 },
             hint: PropertyHint::None,
             getter: |this: &RPathFinding| this.debug_open_node_color,
             setter: |this: &mut RPathFinding, v| this.debug_open_node_color = v,
+            usage: PropertyUsage::DEFAULT,
+        });
+
+        builder.add_property(Property {
+            name: "debugging/unwalkable_node_color",
+            default: godot::Color { r:0.0, g:0.0, b:0.0, a:1.0 },
+            hint: PropertyHint::None,
+            getter: |this: &RPathFinding| this.debug_unwalkable_node_color,
+            setter: |this: &mut RPathFinding, v| this.debug_unwalkable_node_color = v,
             usage: PropertyUsage::DEFAULT,
         });
     }
