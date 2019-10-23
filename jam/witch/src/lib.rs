@@ -137,7 +137,8 @@ impl RPathFinding {
         
     }
 
-    fn find_path(&mut self, mut start_pos: godot::Vector2, mut end_pos: godot::Vector2, mut aux_walkable_query_shape: godot::Shape2D) {
+    #[export]
+    unsafe fn find_path(&mut self, mut owner: godot::Node2D, mut start_pos: godot::Vector2, mut end_pos: godot::Vector2, mut aux_walkable_query_shape: godot::Shape2D) {
 
         if let Some(pathing_grid) = self.pathing_grid_opt {
 
@@ -149,6 +150,7 @@ impl RPathFinding {
                     Err(_) => godot_print!("we didnt get the node :(")
                 };
         }
+        return
     }
 }
 
