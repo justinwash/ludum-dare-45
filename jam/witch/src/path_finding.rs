@@ -1,7 +1,7 @@
 #[macro_use]
 
 use godot::init::{Property, PropertyHint, PropertyUsage};
-use godot::GodotString;
+use godot::{GodotString, FromVariant};
 
 use std::collections::HashSet;
 
@@ -203,22 +203,24 @@ impl RPathFinding {
                 }
 
                 open.retain(|x| &current_node != x);
-                closed.push(current_node);
+                closed.push(current_node.clone());
 
-                if closed[closed.len()] == end { // this is sorta dumb but it should work i guess. fuck ownership.
+                if current_node == end { // this is sorta dumb but it should work i guess. fuck ownership.
                     return //get_node_path(start, end);
                 }
 
-                let mut neighbors = godot::VariantArray::new();
+                let mut neighbors = godot::Variant::new();
                 match pathing_grid_variant.call(
-                &GodotString::from_str("get_neighbors"), 
-                &[godot::Variant::from_variant(&current_node)]) {
-                    Ok(v) => { end = v; godot_print!("think i got it") },
-                    Err(_) => godot_print!("we didnt get the node :(")
+                    &GodotString::from_str("get_neighbors"), 
+                    &[current_node]) {
+                        Ok(v) => { 
+                            neighbors = v; 
+                            godot_print!("first print: {:#?}", neighbors) 
+                        },
+                        Err(_) => godot_print!("we didnt get the node :(")
                 };
+                godot_print!("second print: {:#?}", neighbors) 
             }
-
-
         }
         return
     }
