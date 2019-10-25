@@ -17,8 +17,7 @@ export var max_tree_distance : float
 export var node_removal_distance : float
 
 
-var pathing_grid
-var path_finding
+var nav_2d
 
 var collision_shape
 
@@ -34,8 +33,7 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_root().get_node("Main/Player")
-	path_finding = get_tree().get_root().get_node("Main/PathFinding")
-	pathing_grid = path_finding.get_node("PathingGrid")
+	nav_2d = get_tree().get_root().get_node("Main/Navigation2D")
 	collision_shape = get_node("CollisionShape2D")
 	
 
@@ -64,23 +62,23 @@ func roam():
 	if not current_tree || dist_to_current_tree() < node_removal_distance || current_roam_timeout <= 0:
 		current_tree = select_tree()
 		current_roam_timeout = roam_timeout
-		roam_path.clear()
+		roam_path = PoolVector2Array()
 	
 	var start_pos = self.position
 	var end_pos = current_tree.position
 
-	if not roam_path || roam_path.empty():
+	if not roam_path || roam_path.size() == 0:
 		print("roam_path was empty, trying to find path")
-		roam_path = path_finding.find_path(start_pos, end_pos, collision_shape.shape)
-		if roam_path.empty():
+		roam_path = nav_2d.get_simple_path(start_pos, end_pos)
+		if roam_path.size() == 0:
 			print("failed to find path, selecting new target tree")
 			current_tree = select_tree()
 	else:
-		var distance_to_current_node = self.position.distance_to(roam_path[0].position)
+		var distance_to_current_node = self.position.distance_to(roam_path[0])
 		if distance_to_current_node <= node_removal_distance:
 			roam_path.remove(0)
-		if not roam_path.empty():
-			var roam_dir = get_direction_towards(roam_path[0])
+		if not roam_path.size() == 0:
+			var roam_dir = (roam_path[0] - self.position).normalized()
 			self.move_and_slide(roam_dir * self.move_speed * self.roaming_move_speed_mult, Vector2(0, -1))
 	
 func dist_to_current_tree():
@@ -115,8 +113,6 @@ func kill():
 func get_direction_away_from_player():
 	return (self.position - player.position).normalized()
 
-func get_direction_towards(obj):
-	return (obj.position - self.position).normalized()
 
 
 	
