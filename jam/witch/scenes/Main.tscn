@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://tiles/tileset.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://items/Leaf/Leaf.tscn" type="PackedScene" id=15]
 [ext_resource path="res://music/witch_explore-field-track.wav" type="AudioStream" id=16]
 [ext_resource path="res://characters/enemies/squirrel/Squirrel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/NightFilter.gd" type="Script" id=18]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,7 +28,7 @@ __meta__ = {
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
+[node name="Overworld" type="TileMap" parent="Navigation2D"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -400,3 +401,10 @@ position = Vector2( 317.306, 468.793 )
 roam_timeout = 30.0
 max_tree_distance = 1200.0
 node_removal_distance = 16.0
+
+[node name="NightFilter" type="ColorRect" parent="."]
+visible = false
+margin_right = 976.0
+margin_bottom = 1979.0
+color = Color( 0, 0, 0, 0.470588 )
+script = ExtResource( 18 )
